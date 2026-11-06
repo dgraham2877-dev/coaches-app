@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Coaches App",
   "short_name": "Coaches App",
-  "description": "Cross-platform football coaching PWA with optional secure team cloud sharing.",
+  "description": "Coaches App V15: football coaching tactics, squads, training and matchday workspace.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
@@ -14,13 +14,19 @@
       "src": "./icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "./icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

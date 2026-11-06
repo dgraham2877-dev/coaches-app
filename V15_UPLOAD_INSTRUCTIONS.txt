@@ -1,0 +1,14 @@
+Coaches App V15
+
+Upload ALL seven app files to the ROOT of your GitHub coaches-app repository, preserving icons/ as a folder:
+index.html
+manifest.webmanifest
+sw.js
+README.md
+supabase_setup.sql
+icons/icon-192.png
+icons/icon-512.png
+
+Do not upload the ZIP as the website. GitHub mobile browser may not preserve folder uploads: upload the five root files first, then open/create an icons folder and upload both PNGs there.
+
+After committing, wait for GitHub Pages, open the site in Chrome, refresh, then choose Install app. Existing local data should remain on the same browser origin; avoid clearing site data. Cloud sharing requires separate Supabase setup.
