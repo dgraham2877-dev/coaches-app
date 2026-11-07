@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Coaches App",
   "short_name": "Coaches App",
-  "description": "Coaches App V15: football coaching tactics, squads, training and matchday workspace.",
+  "description": "Coaches App V16: football coaching tactics, squads, training and matchday workspace.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
