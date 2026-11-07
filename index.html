@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#123d2e" name="theme-color"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="yes" name="mobile-web-app-capable"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icons/icon-192.png" rel="icon" sizes="192x192" type="image/png"/><link href="./icons/icon-192.png" rel="apple-touch-icon"/><title>Coaches App V36 Professional</title><style>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#123d2e" name="theme-color"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="yes" name="mobile-web-app-capable"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icons/icon-192.png" rel="icon" sizes="192x192" type="image/png"/><link href="./icons/icon-192.png" rel="apple-touch-icon"/><title>Coaches App V40 Professional</title><style>
 :root{font-family:system-ui,-apple-system,Arial;background:#eef2ef;color:#15271f}*{box-sizing:border-box}body{margin:0}header{background:#123d2e;color:white;padding:18px 16px 14px}header small{color:#b9d8c7}h1{font-size:22px;margin:4px 0}main{max-width:850px;margin:auto;padding:14px 14px 90px}.tabs{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;border-top:1px solid #d6e0da;padding:8px 2px max(8px,env(safe-area-inset-bottom));z-index:5}.tabs button{border:0;background:transparent;font-size:11px;color:#536b5e;padding:7px 4px}.tabs button.active{color:#096b3a;font-weight:800}.panel{display:none}.panel.active{display:block}.card{background:white;border:1px solid #dce5de;border-radius:14px;padding:15px;margin:12px 0;box-shadow:0 2px 8px #123d2e09}h2{font-size:19px;margin:5px 0 10px}h3{font-size:15px;margin:8px 0}.muted{color:#62756a;font-size:13px}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}button.primary,button.secondary{border:0;border-radius:9px;padding:10px 13px;font-weight:700;cursor:pointer}.primary{background:#126b42;color:white}.secondary{background:#e5eee8;color:#174d32}input,select,textarea{padding:11px;border:1px solid #cbd9ce;border-radius:9px;background:white;font:inherit;min-width:0}input{width:100%}textarea{width:100%;min-height:75px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:#eff6f0;padding:13px;border-radius:10px}.stat b{display:block;font-size:21px}.pitch{position:relative;width:100%;aspect-ratio:0.72;background:repeating-linear-gradient(to bottom,#287f4c 0%,#287f4c 10%,#237546 10%,#237546 20%);border:3px solid #e8f2e9;border-radius:6px;touch-action:none;overflow:hidden;user-select:none}.pitch:before{content:'';position:absolute;inset:4%;border:2px solid #ffffffa8;pointer-events:none}.midline{position:absolute;top:50%;left:4%;right:4%;border-top:2px solid #ffffffa8}.circle{position:absolute;top:50%;left:50%;width:25%;aspect-ratio:1;border:2px solid #ffffffa8;border-radius:50%;transform:translate(-50%,-50%)}.area{position:absolute;left:25%;width:50%;height:16%;border:2px solid #ffffffa8}.area.top{top:4%}.area.bottom{bottom:4%}.player{position:absolute;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:#f8f8f8;border:2px solid #123d2e;color:#153a2a;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;touch-action:none;box-shadow:0 2px 5px #0005;cursor:grab}.player span{position:absolute;top:39px;color:white;font-size:10px;white-space:nowrap;text-shadow:0 1px 3px #000}.item{border-bottom:1px solid #e6eee8;padding:11px 0}.item:last-child{border:0}.tag{display:inline-block;background:#e1f0e5;color:#23633e;padding:3px 8px;border-radius:99px;font-size:12px}.danger{color:#a32f2f}.tiny{font-size:12px}label{font-size:13px;font-weight:650;display:block;margin:8px 0 5px}#notice{font-size:12px;color:#bde4c9}#movementLayer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}.player{z-index:2}.coach-tools{margin:12px 0;padding:12px;background:#f1f7f2;border-radius:12px}.coach-tools button{margin-bottom:5px}.play-status{font-size:13px;color:#22583c;font-weight:700;margin-top:6px}.player.moving{transition:left .06s linear,top .06s linear}  .op-player{background:#db5555;border-color:#782626;color:white;z-index:3}.ball-token{position:absolute;z-index:4;width:23px;height:23px;border-radius:50%;background:white;border:2px solid #222;transform:translate(-50%,-50%);display:grid;place-items:center;font-size:16px;touch-action:none;box-shadow:0 2px 5px #0008}.timeline-list{display:flex;gap:7px;overflow-x:auto;padding:7px 0}.timeline-list button{white-space:nowrap}.mode-active{outline:3px solid #ffcf50} .tabs{overflow-x:auto;justify-content:flex-start}.tabs button{min-width:64px;flex:1}.panel textarea{min-height:78px}
 /* V29 simplified Home: hide legacy formation summary and playing identity editor; preserve data and JS references. */
 #formationIdentitySummary, #v18Identity {display:none !important;}
@@ -82,7 +82,7 @@ body.v36-unified #home.v29-settings #v29Dashboard{display:none!important}
 body.v36-unified .v29-bottom{overflow-x:auto;justify-content:space-around}
 body.v36-unified .v29-bottom button{white-space:nowrap}
 @media(max-width:390px){body.v36-unified #v29Dashboard .v29-tile{padding:12px;min-height:108px}body.v36-unified #v30Reports .v30-actions{grid-template-columns:1fr 1fr}}
-</style></head><body><header><small id="coachBrandSubtitle" hidden style="display:none!important">PROFESSIONAL FOOTBALL COACHING WORKSPACE</small><h1 style="display:flex;align-items:center;gap:12px"><img alt="Club or soccer ball app icon" id="coachBrandLogo" src="./icons/icon-192.png" style="width:56px;height:56px;object-fit:contain;border-radius:8px"/> <span id="coachBrandHeading">COACHES APP V36</span></h1><small>Professional Football Coaching Workspace · <span id="notice">Saved on this device</span></small><button hidden="" id="installSouths" onclick="installSouths()" style="margin:10px auto;padding:10px 18px;background:#f2d477;color:#173b2d;border:0;border-radius:12px;font-weight:700">Install Coaches App</button></header><main>
+</style></head><body><header><small id="coachBrandSubtitle" hidden style="display:none!important">PROFESSIONAL FOOTBALL COACHING WORKSPACE</small><h1 style="display:flex;align-items:center;gap:12px"><img alt="Club or soccer ball app icon" id="coachBrandLogo" src="./icons/icon-192.png" style="width:56px;height:56px;object-fit:contain;border-radius:8px"/> <span id="coachBrandHeading">COACHES APP V40</span></h1><small>Professional Football Coaching Workspace · <span id="notice">Saved on this device</span></small><button hidden="" id="installSouths" onclick="installSouths()" style="margin:10px auto;padding:10px 18px;background:#f2d477;color:#173b2d;border:0;border-radius:12px;font-weight:700">Install Coaches App</button></header><main>
 <section class="panel active" id="home"><h2>Coaching dashboard</h2><section class="card" id="v19Manager"><h2>Club Manager · V29</h2><p class="muted">Select a club card to open its workspace. Archive, back up or permanently delete old clubs safely.</p><div class="v20-club-grid" id="v20ClubCards"></div><div class="v20-actions" id="v20ClubActions"></div><label>Current club</label><select id="v19Club" onchange="v19ClubChanged()"></select><label>Current team</label><select id="v19Team" onchange="v19SwitchTeam()"></select><div class="grid2"><div><label>New club name</label><input id="v19NewClub" maxlength="65" placeholder="Your club name"/><button onclick="v19CreateClub()">Create club</button></div><div><label>New team name</label><input id="v19NewTeam" maxlength="65" placeholder="U18 / U23 / First Team"/><button onclick="v19CreateTeam()">Add team</button></div></div><div style="margin-top:12px"><button class="secondary" onclick="v19Rename()">Rename current club/team</button> <button class="secondary danger" onclick="v20DeleteTeam()">Delete current team</button></div><p class="tiny muted">Club and team records are saved on this device. Export backups before deleting or clearing browser data. Cloud sharing remains a separate, optional feature.</p></section>
 <div class="card" id="clubBranding"><h2>Club identity &amp; colours</h2><p class="muted">Personalise the coaching workspace for any club. Your changes stay on this device.</p>
 <label for="clubNameInput">Club name</label><input autocomplete="off" id="clubNameInput" maxlength="65" placeholder="e.g. Souths United"/>
@@ -112,7 +112,7 @@ body.v36-unified .v29-bottom button{white-space:nowrap}
 </section>
 <section class="panel" id="cloudTeamV14"><h2>Team cloud sharing (V14)</h2><p class="tiny">Optional secure team workspace for Android and iPhone. Your current local data stays on this device until you explicitly upload it.</p><div class="coach-tools"><label>Supabase project URL</label><input id="cloudUrl" placeholder="https://your-project.supabase.co" type="url"/><label>Supabase publishable / anon key</label><input id="cloudKey" placeholder="sb_publishable_… or anon JWT" type="text"/><button onclick="cloudConfigure()">Save connection settings</button><p class="tiny">A club administrator must first deploy the included database SQL. Never enter a service_role or secret key here.</p><label>Email</label><input autocomplete="email" id="cloudEmail" type="email"/><label>Password</label><input autocomplete="current-password" id="cloudPassword" type="password"/><button onclick="cloudSignUp()">Create account</button> <button onclick="cloudSignIn()">Sign in</button> <button onclick="cloudSignOut()">Sign out</button><p class="tiny" id="cloudIdentity">Not signed in</p><label>New team name</label><input id="cloudTeamName" placeholder="Your football club"/><button onclick="cloudCreateTeam()">Create team</button><label>Join code from head coach</label><input id="cloudJoinCode" placeholder="Team invite code"/><button onclick="cloudJoinTeam()">Join team</button><label>Active team</label><select id="cloudTeams" onchange="cloudSelectTeam()"><option value="">No team selected</option></select><button onclick="cloudRefreshTeams()">Refresh teams</button><p class="tiny" id="cloudStatus" role="status">Cloud is not connected. All local coaching features still work.</p><p><strong>Team data sync:</strong> Shared team data is a single team-wide snapshot. Coordinate edits with other coaches; uploading replaces the latest shared snapshot.</p><button onclick="cloudPush()">Upload this device's coaching data</button> <button onclick="cloudPull()">Download team data to this device</button><p class="tiny">Before downloading, export a local JSON backup. This version does not automatically merge concurrent changes. Club branding remains device-local.</p></div></section><section class="panel" id="v17"><h2>V17 · Coaching playbook</h2><div class="card"><h3>Save a tactical game plan</h3><p class="muted">Capture the current base, attack and defence shapes along with your coaching instructions. Saved on this device; export a backup regularly.</p><label>Plan name</label><input id="v17PlanName" placeholder="e.g. Round 4 vs high press"/><label>In-possession principles</label><textarea id="v17In" placeholder="Build-up, rotations, overloads, attacking runs"></textarea><label>Out-of-possession principles</label><textarea id="v17Out" placeholder="Pressing triggers, block height, defensive cover"></textarea><label>Transition and rest defence</label><textarea id="v17Transition" placeholder="Counter-press, recovery runs, rest defence"></textarea><div class="row"><button class="primary" onclick="v17SavePlan()">Save tactical plan</button><button class="secondary" onclick="v18CancelEdit()">New plan / Clear editor</button><button class="secondary" onclick="v17PrintPlan()">Print / Save PDF</button></div><p class="tiny muted" id="v18EditStatus"></p><div id="v17Plans"></div></div><div class="card"><h3>Set-piece responsibilities</h3><label>Set-piece type</label><select id="v17SetType"><option>Defensive inswinging corner</option><option>Defensive outswinging corner</option><option>Attacking corner</option><option>Attacking free kick</option><option>Defensive free kick</option><option>Throw-in</option></select><label>Assignments and instructions</label><textarea id="v17SetNotes" placeholder="e.g. CDM1 marks the blocker, dominant CB attacks first contact, near-post zone protected"></textarea><div class="row"><button class="primary" onclick="v17SaveSet()">Save set piece</button></div><div id="v17SetList"></div></div><div class="card"><h3>Matchday preparation checklist</h3><p class="muted">Tick tasks as you complete them. The checklist is stored locally.</p><div id="v17Checklist"></div><button class="secondary" onclick="v17ResetChecks()">Reset checklist for next match</button></div><div class="card"><h3>Coaching quick notes</h3><label>Notes for halftime or post-match review</label><textarea id="v17QuickNotes" oninput="v17SaveNotes()" placeholder="Key observations, substitutions, coaching points"></textarea><button class="secondary" onclick="v17PrintNotes()">Print notes / Save PDF</button></div></section><section class="panel" id="v22"><div class="card"><h2>Coaches App · Version 24</h2><p class="muted">Advanced matchday and coaching centre. Your V21 tools remain available in their original tabs. V22 records save separately for each club and team on this device.</p><div class="v22-nav" id="v22Nav"></div><div id="v22Body"></div><p class="v22-hint" id="v22Status" role="status"></p></div></section></main><nav class="tabs"><button class="active" data-tab="home" onclick="tab('home')">⌂<br/>Home</button><button data-tab="tactics" onclick="tab('tactics')">▤<br/>Tactics</button><button data-tab="squad" onclick="tab('squad')">♟<br/>Squad</button><button data-tab="more" onclick="tab('more')">🔍 Match Scout</button><button data-tab="pro" onclick="tab('pro')">★<br/>Pro</button><button data-tab="v17" onclick="tab('v17')">▣<br/>Playbook</button><button data-tab="cloudTeamV14" onclick="tab('cloudTeamV14')">☁<br/>Team Cloud</button><button data-tab="v22" onclick="tab('v22')">⚽<br/>Coaching Centre</button></nav><script>
 const KEY='souths-coach-pro-v1';const base={players:[],sessions:[],scouts:[],tactics:[],match:{},formation:'4231',positions:null};let state;try{state={...base,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch{state=structuredClone(base)};
-const names=['GK','LB','LCB','RCB','RB','CDM1','CDM2','LW','CAM','RW','ST'];const formations={4231:[[50,91],[13,70],[38,75],[62,75],[87,70],[43,58],[57,52],[13,29],[50,35],[87,29],[50,14]],334:[[50,91],[23,71],[50,75],[77,71],[22,53],[50,55],[78,53],[10,21],[40,18],[90,21],[62,18]],corner:[[50,91],[13,84],[33,82],[67,82],[87,84],[50,87],[52,72],[20,66],[50,62],[80,66],[50,48]]};let positions=state.positions||formations[state.formation]||formations['4231'];
+const names=['GK','LB','LCB','RCB','RB','CDM1','CDM2','LW','CAM','RW','ST'];const formations={4231:[[50,91],[13,70],[38,75],[62,75],[87,70],[39,55],[62,49],[13,29],[50,35],[87,29],[50,14]],334:[[50,91],[23,71],[50,75],[77,71],[22,53],[50,55],[78,53],[10,21],[40,18],[90,21],[62,18]],corner:[[50,91],[13,84],[33,82],[67,82],[87,84],[50,87],[52,72],[20,66],[50,62],[80,66],[50,48]]};let positions=state.positions||formations[state.formation]||formations['4231'];
 function save(){state.positions=positions;localStorage.setItem(KEY,JSON.stringify(state));document.getElementById('notice').textContent='Saved on this device'}function tab(id){document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));scrollTo(0,0)}
 function setFormation(f){state.formation=f;positions=formations[f].map(p=>[...p]);draw();save()}function resetPositions(){setFormation(state.formation)}
 function draw(){let p=document.getElementById('pitch');p.querySelectorAll('.player').forEach(x=>x.remove());positions.forEach(([x,y],i)=>{let e=document.createElement('div');e.className='player';e.style.left=x+'%';e.style.top=y+'%';e.textContent=i+1;let s=document.createElement('span');s.textContent=names[i];e.append(s);p.append(e);e.addEventListener('pointerdown',ev=>{ev.preventDefault();e.setPointerCapture(ev.pointerId)});e.addEventListener('pointermove',ev=>{if(!e.hasPointerCapture(ev.pointerId))return;let r=p.getBoundingClientRect();positions[i]=[Math.max(6,Math.min(94,(ev.clientX-r.left)/r.width*100)),Math.max(6,Math.min(94,(ev.clientY-r.top)/r.height*100))];e.style.left=positions[i][0]+'%';e.style.top=positions[i][1]+'%'});e.addEventListener('pointerup',save);e.addEventListener('pointercancel',save)})}
@@ -316,7 +316,7 @@ const CLUB_BRAND_KEY='coaches-app-club-brand-v10';
 let clubLogoDraft=null;
 const $brand=id=>document.getElementById(id);
 function safeBrand(){try{return JSON.parse(localStorage.getItem(CLUB_BRAND_KEY)||'{}')}catch{return {}}}
-function applyClubBrand(b){const primary=/^#[0-9a-f]{6}$/i.test(b.primary||'')?b.primary:'#123d2e';const accent=/^#[0-9a-f]{6}$/i.test(b.accent||'')?b.accent:'#f2d477';document.documentElement.style.setProperty('--coach-primary',primary);document.documentElement.style.setProperty('--coach-accent',accent);const name=typeof b.name==='string'?b.name.slice(0,65).trim():''; $brand('coachBrandHeading').textContent='COACHES APP V36';$brand('coachBrandSubtitle').textContent='PROFESSIONAL FOOTBALL COACHING WORKSPACE';const logo=typeof b.logo==='string'&&/^data:image\/(png|jpeg|webp);base64,/.test(b.logo)?b.logo:'./icons/icon-192.png';$brand('coachBrandLogo').src=logo;$brand('clubLogoPreview').src=logo;$brand('clubNameInput').value=name;$brand('clubPrimary').value=primary;$brand('clubAccent').value=accent;clubLogoDraft=logo.startsWith('data:')?logo:null;}
+function applyClubBrand(b){const primary=/^#[0-9a-f]{6}$/i.test(b.primary||'')?b.primary:'#123d2e';const accent=/^#[0-9a-f]{6}$/i.test(b.accent||'')?b.accent:'#f2d477';document.documentElement.style.setProperty('--coach-primary',primary);document.documentElement.style.setProperty('--coach-accent',accent);const name=typeof b.name==='string'?b.name.slice(0,65).trim():''; $brand('coachBrandHeading').textContent='COACHES APP V40';$brand('coachBrandSubtitle').textContent='PROFESSIONAL FOOTBALL COACHING WORKSPACE';const logo=typeof b.logo==='string'&&/^data:image\/(png|jpeg|webp);base64,/.test(b.logo)?b.logo:'./icons/icon-192.png';$brand('coachBrandLogo').src=logo;$brand('clubLogoPreview').src=logo;$brand('clubNameInput').value=name;$brand('clubPrimary').value=primary;$brand('clubAccent').value=accent;clubLogoDraft=logo.startsWith('data:')?logo:null;}
 $brand('clubLogoInput').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>1024*1024){alert('Choose a PNG, JPG or WebP image under 1 MB.');e.target.value='';return;}const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file)});clubLogoDraft=data;$brand('clubLogoPreview').src=data;});
 function resetClubLogo(){clubLogoDraft=null;$brand('clubLogoInput').value='';$brand('clubLogoPreview').src='./icons/icon-192.png';}
 function saveClubBranding(){const b={name:$brand('clubNameInput').value.trim(),primary:$brand('clubPrimary').value,accent:$brand('clubAccent').value,logo:clubLogoDraft};try{localStorage.setItem(CLUB_BRAND_KEY,JSON.stringify(b));applyClubBrand(b);alert('Club branding saved on this device.')}catch(e){alert('Storage is full. Try a smaller club crest.')}}
@@ -326,7 +326,7 @@ applyClubBrand(safeBrand());
 // V11 game-day opposition roster: independent of the training tactics opposition tokens.
 const OPP_DEFAULT={formation:'4-2-3-1',players:Array.from({length:11},(_,i)=>({number:String(i+1),name:''})),points:null};
 function initOppositionMatch(){const old=state.matchOpposition||{};let formation='4-2-3-1';try{formation=parseShape(old.formation||formation).label}catch{}const players=Array.from({length:11},(_,i)=>({number:String(old.players?.[i]?.number??i+1),name:String(old.players?.[i]?.name??'')}));const points=Array.isArray(old.points)&&old.points.length===11&&old.points.every(p=>Array.isArray(p)&&p.length===2&&p.every(Number.isFinite))?old.points.map(p=>[...p]):oppositionShapePoints(formation);state.matchOpposition={formation,players,points};}
-function oppositionShapePoints(label){const points=shapePositions(label).map(([x,y])=>[x,100-y]);if(label.replace(/\s/g,'')==='4-2-3-1'&&points.length===11){points[5]=[39,42];points[6]=[61,48];}return points;}
+function oppositionShapePoints(label){const points=shapePositions(label).map(([x,y])=>[x,100-y]);if(label.replace(/\s/g,'')==='4-2-3-1'&&points.length===11){/* Compact staggered double pivot: 6 screens the centre-backs, 7 supports higher. */points[5]=[38,40];points[6]=[62,45];}return points;}
 function oppRosterToState(){document.querySelectorAll('.opp-roster-row').forEach((row,i)=>{state.matchOpposition.players[i]={number:row.querySelector('.opp-number').value.trim().slice(0,3),name:row.querySelector('.opp-name').value.trim().slice(0,65)}});}
 function renderOppositionRoster(){const target=document.getElementById('oppMatchRoster');target.replaceChildren();state.matchOpposition.players.forEach((p,i)=>{const row=document.createElement('div');row.className='opp-roster-row';const index=document.createElement('strong');index.textContent=i===0?'GK':String(i+1);const number=document.createElement('input');number.className='opp-number';number.type='text';number.inputMode='numeric';number.maxLength=3;number.placeholder='#';number.setAttribute('aria-label','Player '+(i+1)+' shirt number');number.value=p.number;const name=document.createElement('input');name.className='opp-name';name.maxLength=65;name.placeholder='Player name';name.setAttribute('aria-label','Player '+(i+1)+' name');name.value=p.name;const update=()=>{oppRosterToState();drawOppositionMatchPitch();save()};number.addEventListener('change',update);name.addEventListener('change',update);row.append(index,number,name);target.append(row)});}
 function drawOppositionMatchPitch(){const pitch=document.getElementById('oppMatchPitch');pitch.querySelectorAll('.opp-token').forEach(el=>el.remove());state.matchOpposition.points.forEach(([x,y],i)=>{const p=state.matchOpposition.players[i],token=document.createElement('div');token.className='opp-token';token.textContent=p.number||'–';token.style.left=x+'%';token.style.top=y+'%';const caption=document.createElement('span');caption.textContent=p.name|| (i===0?'GK':'Player '+(i+1));token.append(caption);pitch.append(token);token.addEventListener('pointerdown',e=>{e.preventDefault();token.setPointerCapture(e.pointerId)});token.addEventListener('pointermove',e=>{if(!token.hasPointerCapture(e.pointerId))return;const r=pitch.getBoundingClientRect();const point=[Math.max(7,Math.min(93,(e.clientX-r.left)/r.width*100)),Math.max(7,Math.min(93,(e.clientY-r.top)/r.height*100))];state.matchOpposition.points[i]=point;token.style.left=point[0]+'%';token.style.top=point[1]+'%'});token.addEventListener('pointerup',()=>save())})}
@@ -849,7 +849,7 @@ function init(){
  if(head){
    const nodes=head.querySelectorAll('small');
    nodes.forEach(n=>{if(n.id==='coachBrandSubtitle'){n.hidden=true;n.style.display='none';}});
-   const title=head.querySelector('h1');if(title)title.textContent='COACHES APP V36';
+   const title=head.querySelector('h1');if(title)title.textContent='COACHES APP V40';
  }
  const reports=document.getElementById('v30Reports');
  if(reports){
@@ -897,7 +897,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 (function(){'use strict';
 const palette=[['White','#ffffff'],['Red','#e53935'],['Blue','#2563eb'],['Yellow','#facc15'],['Green','#16a34a'],['Black','#171717'],['Orange','#f97316'],['Purple','#9333ea']];
 const key='coaches-v36-player-colours';
-let settings={ours:'#ffffff',opposition:'#e53935',number:'auto'};
+let settings={ours:'#ffffff',opposition:'#2563eb',number:'auto'};
 function valid(c){return palette.some(p=>p[1]===c)}
 function read(){try{const x=JSON.parse(localStorage.getItem(key)||'{}');if(valid(x.ours))settings.ours=x.ours;if(valid(x.opposition))settings.opposition=x.opposition;if(['auto','white','black'].includes(x.number))settings.number=x.number}catch(e){}}
 function contrast(hex){const rgb=[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255).map(c=>c<=.04045?c/12.92:((c+.055)/1.055)**2.4);return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722>.42?'#172b21':'#ffffff'}
@@ -915,5 +915,195 @@ function init(){read();const pitch=document.getElementById('pitch');if(!pitch)re
  const title=document.querySelector('#v29Dashboard>h2');if(title)title.textContent='Coaching Dashboard';
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+<style id="v38PlayerFigures">
+/* V38: optional compact footballer silhouette; circle rendering remains untouched. */
+#pitch.v38-own-figures .player:not(.op-player),
+#pitch.v38-opp-figures .player.op-player,
+#oppMatchPitch.v38-opp-figures .opp-token {
+  width:31px!important;height:35px!important;
+  border-radius:11px 11px 8px 8px!important;
+  overflow:visible!important;
+  border:2px solid #17372e!important;
+  box-shadow:-8px 6px 0 -5px #d1a07a,8px 6px 0 -5px #d1a07a,0 3px 5px #0005!important;
+  isolation:isolate;
+  font-size:15px!important;
+  line-height:30px!important;
+  text-align:center!important;
+  background-image:linear-gradient(90deg,#00000016,transparent 40%,#ffffff18 70%,#00000018)!important;
+}
+#pitch.v38-own-figures .player:not(.op-player)::before,
+#pitch.v38-opp-figures .player.op-player::before,
+#oppMatchPitch.v38-opp-figures .opp-token::before {
+  content:"";position:absolute;top:-17px;left:50%;
+  transform:translateX(-50%);width:15px;height:15px;
+  border-radius:48% 48% 45% 45%;background:#d1a07a;
+  border:1.5px solid #27372c;box-shadow:0 -3px 0 -1px #30291f;
+  pointer-events:none;
+}
+#pitch.v38-own-figures .player:not(.op-player)::after,
+#pitch.v38-opp-figures .player.op-player::after,
+#oppMatchPitch.v38-opp-figures .opp-token::after {
+  content:"";position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);
+  width:27px;height:17px;border-radius:2px 2px 6px 6px;
+  background:linear-gradient(90deg,transparent 0 6%,#1c2937 6% 39%,transparent 39% 61%,#1c2937 61% 94%,transparent 94%);
+  filter:drop-shadow(0 2px 1px #0006);pointer-events:none;
+}
+/* Position/name labels are placed beneath the entire figure and never on the legs. */
+#pitch.v38-own-figures .player:not(.op-player) > span,
+#pitch.v38-opp-figures .player.op-player > span,
+#oppMatchPitch.v38-opp-figures .opp-token > span {
+  position:absolute!important;top:55px!important;bottom:auto!important;
+  left:50%!important;transform:translateX(-50%)!important;
+  width:max-content;max-width:78px;min-width:25px;
+  padding:2px 4px!important;border-radius:4px;
+  background:#102c22dc!important;color:white!important;
+  text-shadow:none!important;line-height:1.15!important;
+  font-size:10px!important;font-weight:700!important;
+  white-space:nowrap;z-index:2;pointer-events:none;
+}
+/* Ball remains draggable but does not obscure goalkeeper's shirt number. */
+#pitch:has(.v38-gk) .ball-token {z-index:3}
+#pitch.v38-own-figures .ball-token {transform:translate(-50%,-50%) scale(.68)!important}
+#v38AppearancePanel{margin:12px 0;padding:14px;border:1px solid #b8d3c1;border-radius:12px;background:#f0f7f1}
+#v38AppearancePanel h3{margin:0 0 7px}
+#v38AppearancePanel label{display:block;margin:10px 0 5px;font-weight:700}
+#v38AppearancePanel select{width:100%;max-width:420px;padding:10px;border-radius:8px}
+</style>
+<script id="v38PlayerFigureScript">
+(function(){
+'use strict';
+const KEY='coaches-v37-player-appearance';
+let cfg={ours:'figures',opposition:'circles'};
+try { const v=JSON.parse(localStorage.getItem(KEY)||'{}');
+ for(const k of ['ours','opposition']) if(['figures','circles'].includes(v[k])) cfg[k]=v[k];
+} catch(e) {}
+function apply(){
+ const pitch=document.getElementById('pitch'),opp=document.getElementById('oppMatchPitch');
+ if(pitch){
+  pitch.classList.toggle('v38-own-figures',cfg.ours==='figures');
+  pitch.classList.toggle('v38-opp-figures',cfg.opposition==='figures');
+ }
+ if(opp)opp.classList.toggle('v38-opp-figures',cfg.opposition==='figures');
+ for(const k of ['ours','opposition']){
+  const select=document.getElementById('v38-'+k);
+  if(select)select.value=cfg[k];
+ }
+}
+function init(){
+ if(document.getElementById('v38AppearancePanel'))return;
+ const anchor=document.getElementById('v36ColourPanel')||document.getElementById('systemDesigner');
+ if(!anchor)return;
+ const panel=document.createElement('section');panel.id='v38AppearancePanel';
+ const heading=document.createElement('h3');heading.textContent='⚽ Player appearance · V38';panel.append(heading);
+ const intro=document.createElement('p');
+ intro.textContent='Choose realistic tactical footballer figures or classic circles separately for your team and the opposition. Colours, numbers, names and draggable positions stay available.';
+ panel.append(intro);
+ for(const [key,label] of [['ours','Our team'],['opposition','Opposition']]){
+  const l=document.createElement('label');l.htmlFor='v38-'+key;l.textContent=label;panel.append(l);
+  const s=document.createElement('select');s.id='v38-'+key;
+  for(const [value,title] of [['figures','Footballer figures'],['circles','Classic circles']]){
+   const o=document.createElement('option');o.value=value;o.textContent=title;s.append(o);
+  }
+  s.addEventListener('change',()=>{
+   cfg[key]=s.value;
+   try{localStorage.setItem(KEY,JSON.stringify(cfg))}catch(e){}
+   apply();
+  });
+  panel.append(s);
+ }
+ anchor.insertAdjacentElement('afterend',panel);
+ apply();
+ const pitch=document.getElementById('pitch'),opp=document.getElementById('oppMatchPitch');
+ const observer=new MutationObserver(()=>apply());
+ if(pitch)observer.observe(pitch,{childList:true});
+ if(opp)observer.observe(opp,{childList:true});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+
+<style id="v39CompactFootballers">
+/* V39: compact figures, retaining independent classic-circle mode. */
+#pitch.v38-own-figures .player:not(.op-player),
+#pitch.v38-opp-figures .player.op-player,
+#oppMatchPitch.v38-opp-figures .opp-token {
+  width:25px!important;height:29px!important;
+  font-size:12px!important;line-height:25px!important;
+  border-radius:9px 9px 6px 6px!important;
+  box-shadow:-6px 5px 0 -4px #d1a07a,6px 5px 0 -4px #d1a07a,0 2px 4px #0005!important;
+}
+#pitch.v38-own-figures .player:not(.op-player)::before,
+#pitch.v38-opp-figures .player.op-player::before,
+#oppMatchPitch.v38-opp-figures .opp-token::before {
+  width:12px;height:12px;top:-14px!important;
+}
+#pitch.v38-own-figures .player:not(.op-player)::after,
+#pitch.v38-opp-figures .player.op-player::after,
+#oppMatchPitch.v38-opp-figures .opp-token::after {
+  width:23px;height:13px;bottom:-13px!important;
+}
+#pitch.v38-own-figures .player:not(.op-player)>span,
+#pitch.v38-opp-figures .player.op-player>span,
+#oppMatchPitch.v38-opp-figures .opp-token>span {
+  top:43px!important;font-size:9px!important;
+}
+/* Only visually offset ball near the keeper; dragging and saved ball coordinates remain unchanged. */
+#pitch.v38-own-figures .ball-token.v39-near-gk {
+  transform:translate(calc(-50% + 23px),calc(-50% - 17px)) scale(.65)!important;
+}
+</style>
+<script id="v39KeeperBallFix">
+(function(){
+ function update(){
+  const pitch=document.getElementById('pitch');
+  if(!pitch)return;
+  const ball=pitch.querySelector('.ball-token');
+  const players=pitch.querySelectorAll('.player:not(.op-player)');
+  const keeper=Array.from(players).find(el=>el.textContent.trim().startsWith('1') || el.querySelector('span')?.textContent==='GK');
+  if(!ball || !keeper)return;
+  const bx=parseFloat(ball.style.left),by=parseFloat(ball.style.top);
+  const kx=parseFloat(keeper.style.left),ky=parseFloat(keeper.style.top);
+  ball.classList.toggle('v39-near-gk',Math.abs(bx-kx)<7&&Math.abs(by-ky)<8);
+ }
+ function init(){
+  const pitch=document.getElementById('pitch');
+  if(!pitch)return;
+  const observer=new MutationObserver(update);
+  observer.observe(pitch,{childList:true,subtree:false,attributes:true,attributeFilter:['style']});
+  pitch.addEventListener('pointerup',update);
+  update();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+ else init();
+})();
+</script>
+
+
+<style id="v40PitchPolish">
+#v40BallControls{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:9px 0 16px}
+#v40BallControls button{padding:10px 13px;border:0;border-radius:9px;background:#e5eee8;color:#174d32;font-weight:750}
+#v40BallControls small{color:#536b5e}
+#pitch.v38-own-figures .ball-token.v39-near-gk{transform:translate(-50%,-50%) scale(.68)!important}
+</style>
+<script id="v40BallReset">
+(function(){
+ function init(){
+  const pitch=document.getElementById('pitch');
+  if(!pitch||document.getElementById('v40BallControls'))return;
+  const controls=document.createElement('div');controls.id='v40BallControls';
+  const button=document.createElement('button');button.type='button';button.textContent='⚽ Reset ball position';
+  button.addEventListener('click',function(){
+   if(typeof state==='undefined'||typeof draw!=='function'||typeof save!=='function')return;
+   // Just to the right of the goalkeeper: number and legs stay visible.
+   state.ball=[61,87];draw();save();
+  });
+  const hint=document.createElement('small');hint.textContent='Drag the ball anywhere, or reset it beside the goalkeeper.';
+  controls.append(button,hint);pitch.insertAdjacentElement('afterend',controls);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
