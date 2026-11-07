@@ -1,4 +1,4 @@
-const CACHE='coaches-app-v16-static-1';
+const CACHE='coaches-app-v17-static-1';
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>(key.startsWith('souths-coach-')||key.startsWith('coaches-app-'))&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()));});
