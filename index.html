@@ -82,7 +82,7 @@ body.v36-unified #home.v29-settings #v29Dashboard{display:none!important}
 body.v36-unified .v29-bottom{overflow-x:auto;justify-content:space-around}
 body.v36-unified .v29-bottom button{white-space:nowrap}
 @media(max-width:390px){body.v36-unified #v29Dashboard .v29-tile{padding:12px;min-height:108px}body.v36-unified #v30Reports .v30-actions{grid-template-columns:1fr 1fr}}
-</style></head><body><header><small id="coachBrandSubtitle" hidden style="display:none!important">PROFESSIONAL FOOTBALL COACHING WORKSPACE</small><h1 style="display:flex;align-items:center;gap:12px"><img alt="Club or soccer ball app icon" id="coachBrandLogo" src="./icons/icon-192.png" style="width:56px;height:56px;object-fit:contain;border-radius:8px"/> <span id="coachBrandHeading">COACHES APP V45</span></h1><small>Professional Football Coaching Workspace · <span id="notice">Saved on this device</span></small><button hidden="" id="installSouths" onclick="installSouths()" style="margin:10px auto;padding:10px 18px;background:#f2d477;color:#173b2d;border:0;border-radius:12px;font-weight:700">Install Coaches App</button></header><main>
+</style></head><body><header><small id="coachBrandSubtitle" hidden style="display:none!important">PROFESSIONAL FOOTBALL COACHING WORKSPACE</small><h1 style="display:flex;align-items:center;gap:12px"><img alt="Club or soccer ball app icon" id="coachBrandLogo" src="./icons/icon-192.png" style="width:56px;height:56px;object-fit:contain;border-radius:8px"/> <span id="coachBrandHeading">COACHES APP V46</span></h1><small>Professional Football Coaching Workspace · <span id="notice">Saved on this device</span></small><button hidden="" id="installSouths" onclick="installSouths()" style="margin:10px auto;padding:10px 18px;background:#f2d477;color:#173b2d;border:0;border-radius:12px;font-weight:700">Install Coaches App</button></header><main>
 <section class="panel active" id="home"><h2>Coaching dashboard</h2><section class="card" id="v19Manager"><h2>Club Manager · V29</h2><p class="muted">Select a club card to open its workspace. Archive, back up or permanently delete old clubs safely.</p><div class="v20-club-grid" id="v20ClubCards"></div><div class="v20-actions" id="v20ClubActions"></div><label>Current club</label><select id="v19Club" onchange="v19ClubChanged()"></select><label>Current team</label><select id="v19Team" onchange="v19SwitchTeam()"></select><div class="grid2"><div><label>New club name</label><input id="v19NewClub" maxlength="65" placeholder="Your club name"/><button onclick="v19CreateClub()">Create club</button></div><div><label>New team name</label><input id="v19NewTeam" maxlength="65" placeholder="U18 / U23 / First Team"/><button onclick="v19CreateTeam()">Add team</button></div></div><div style="margin-top:12px"><button class="secondary" onclick="v19Rename()">Rename current club/team</button> <button class="secondary danger" onclick="v20DeleteTeam()">Delete current team</button></div><p class="tiny muted">Club and team records are saved on this device. Export backups before deleting or clearing browser data. Cloud sharing remains a separate, optional feature.</p></section>
 <div class="card" id="clubBranding"><h2>Club identity &amp; colours</h2><p class="muted">Personalise the coaching workspace for any club. Your changes stay on this device.</p>
 <label for="clubNameInput">Club name</label><input autocomplete="off" id="clubNameInput" maxlength="65" placeholder="e.g. Souths United"/>
@@ -316,7 +316,7 @@ const CLUB_BRAND_KEY='coaches-app-club-brand-v10';
 let clubLogoDraft=null;
 const $brand=id=>document.getElementById(id);
 function safeBrand(){try{return JSON.parse(localStorage.getItem(CLUB_BRAND_KEY)||'{}')}catch{return {}}}
-function applyClubBrand(b){const primary=/^#[0-9a-f]{6}$/i.test(b.primary||'')?b.primary:'#123d2e';const accent=/^#[0-9a-f]{6}$/i.test(b.accent||'')?b.accent:'#f2d477';document.documentElement.style.setProperty('--coach-primary',primary);document.documentElement.style.setProperty('--coach-accent',accent);const name=typeof b.name==='string'?b.name.slice(0,65).trim():''; $brand('coachBrandHeading').textContent='COACHES APP V45';$brand('coachBrandSubtitle').textContent='PROFESSIONAL FOOTBALL COACHING WORKSPACE';const logo=typeof b.logo==='string'&&/^data:image\/(png|jpeg|webp);base64,/.test(b.logo)?b.logo:'./icons/icon-192.png';$brand('coachBrandLogo').src=logo;$brand('clubLogoPreview').src=logo;$brand('clubNameInput').value=name;$brand('clubPrimary').value=primary;$brand('clubAccent').value=accent;clubLogoDraft=logo.startsWith('data:')?logo:null;}
+function applyClubBrand(b){const primary=/^#[0-9a-f]{6}$/i.test(b.primary||'')?b.primary:'#123d2e';const accent=/^#[0-9a-f]{6}$/i.test(b.accent||'')?b.accent:'#f2d477';document.documentElement.style.setProperty('--coach-primary',primary);document.documentElement.style.setProperty('--coach-accent',accent);const name=typeof b.name==='string'?b.name.slice(0,65).trim():''; $brand('coachBrandHeading').textContent='COACHES APP V46';$brand('coachBrandSubtitle').textContent='PROFESSIONAL FOOTBALL COACHING WORKSPACE';const logo=typeof b.logo==='string'&&/^data:image\/(png|jpeg|webp);base64,/.test(b.logo)?b.logo:'./icons/icon-192.png';$brand('coachBrandLogo').src=logo;$brand('clubLogoPreview').src=logo;$brand('clubNameInput').value=name;$brand('clubPrimary').value=primary;$brand('clubAccent').value=accent;clubLogoDraft=logo.startsWith('data:')?logo:null;}
 $brand('clubLogoInput').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>1024*1024){alert('Choose a PNG, JPG or WebP image under 1 MB.');e.target.value='';return;}const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file)});clubLogoDraft=data;$brand('clubLogoPreview').src=data;});
 function resetClubLogo(){clubLogoDraft=null;$brand('clubLogoInput').value='';$brand('clubLogoPreview').src='./icons/icon-192.png';}
 function saveClubBranding(){const b={name:$brand('clubNameInput').value.trim(),primary:$brand('clubPrimary').value,accent:$brand('clubAccent').value,logo:clubLogoDraft};try{localStorage.setItem(CLUB_BRAND_KEY,JSON.stringify(b));applyClubBrand(b);alert('Club branding saved on this device.')}catch(e){alert('Storage is full. Try a smaller club crest.')}}
@@ -849,7 +849,7 @@ function init(){
  if(head){
    const nodes=head.querySelectorAll('small');
    nodes.forEach(n=>{if(n.id==='coachBrandSubtitle'){n.hidden=true;n.style.display='none';}});
-   const title=head.querySelector('h1');if(title)title.textContent='COACHES APP V45';
+   const title=head.querySelector('h1');if(title)title.textContent='COACHES APP V46';
  }
  const reports=document.getElementById('v30Reports');
  if(reports){
@@ -1293,7 +1293,7 @@ async function importClub(file){if(!file)return;let x;try{x=JSON.parse(await fil
  db.clubs.push(copy);db.activeClub=id;db.activeFormation=copy.formations[0]?.id||null;persist();updateSelects();if(activeForm())restore(activeForm());status('Imported '+copy.name+' with '+copy.formations.length+' formations.');}
 function init(){const pitch=$('oppMatchPitch');if(!pitch||$('v44Library'))return;
  read();const box=document.createElement('section');box.id='v44Library';
- box.innerHTML='<h3>🏟️ Opposition Club Library · V45</h3><p>Select a club and saved formation to load its full lineup automatically. Move players or edit names to auto-save.</p><label for="v44Club">Opposition club</label><select id="v44Club"></select><div class="v44buttons"><button id="v44AddClub" type="button">+ Add club</button></div><label for="v44Formation">Club formation</label><select id="v44Formation"></select><div class="v44buttons"><button id="v44AddForm" type="button">+ New formation</button><button id="v44Duplicate" type="button">Duplicate</button><button id="v44Delete" type="button">Delete formation</button><button id="v45ResetShape" type="button">⚽ Fix formation display</button></div><label class="v44check"><input id="v44Autosave" type="checkbox" checked> Automatically save changes</label><div class="v44buttons"><button class="primary" id="v44Save" type="button">💾 Save now</button><button id="v44Reload" type="button">↻ Reload saved formation</button></div><details><summary>Club backup · Export / Import</summary><p>Export a JSON backup to reopen on this or another phone. Import creates a separate club, without overwriting existing clubs.</p><div class="v44buttons"><button id="v44Export" type="button">Export selected club</button><button id="v44Import" type="button">Import club JSON</button></div><input id="v44File" type="file" accept=".json,application/json" hidden></details><p class="v44status" id="v44Status" role="status">Saved on this device. Export backups regularly.</p>';
+ box.innerHTML='<h3>🏟️ Opposition Club Library · V46</h3><p>Select a club and saved formation to load its full lineup automatically. Move players or edit names to auto-save.</p><label for="v44Club">Opposition club</label><select id="v44Club"></select><div class="v44buttons"><button id="v44AddClub" type="button">+ Add club</button></div><label for="v44Formation">Club formation</label><select id="v44Formation"></select><div class="v44buttons"><button id="v44AddForm" type="button">+ New formation</button><button id="v44Duplicate" type="button">Duplicate</button><button id="v44Delete" type="button">Delete formation</button><button id="v45ResetShape" type="button">⚽ Fix formation display</button></div><label class="v44check"><input id="v44Autosave" type="checkbox" checked> Automatically save changes</label><div class="v44buttons"><button class="primary" id="v44Save" type="button">💾 Save now</button><button id="v44Reload" type="button">↻ Reload saved formation</button></div><details><summary>Club backup · Export / Import</summary><p>Export a JSON backup to reopen on this or another phone. Import creates a separate club, without overwriting existing clubs.</p><div class="v44buttons"><button id="v44Export" type="button">Export selected club</button><button id="v44Import" type="button">Import club JSON</button></div><input id="v44File" type="file" accept=".json,application/json" hidden></details><p class="v44status" id="v44Status" role="status">Saved on this device. Export backups regularly.</p>';
  pitch.parentElement.insertBefore(box,pitch);
  // Keep V43 manual save as an optional legacy backup rather than a competing primary UI.
  const old=$('v43OppSaved');if(old){const details=document.createElement('details');const sum=document.createElement('summary');sum.textContent='Older manual formation saves (V43)';details.append(sum);old.parentNode.insertBefore(details,old);details.append(old)}
@@ -1308,6 +1308,97 @@ function init(){const pitch=$('oppMatchPitch');if(!pitch||$('v44Library'))return
  // Roster fields use change events (on blur); input listener also auto-saves typed edits.
  const roster=$('oppMatchRoster');if(roster)roster.addEventListener('input',()=>schedule());
  window.addEventListener('pagehide',()=>{if(db.autosave)saveCurrent(true)});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+<style id="v46AnalysisStyle">
+#v46Analysis{background:#f4f8f5;border:1px solid #b7d2c2;border-radius:14px;padding:15px;margin:14px 0;color:#183b2b}
+#v46Analysis h3{font-size:21px;margin:0 0 8px}#v46Analysis p{font-size:13px;color:#52695c}
+#v46Analysis label{display:block;font-weight:700;margin:13px 0 5px}
+#v46Analysis textarea,#v46Analysis input{display:block;width:100%;box-sizing:border-box;padding:11px;border:1px solid #b9cfc1;border-radius:9px;background:white;color:#173b2b;font:inherit;font-size:16px}
+#v46Analysis textarea{min-height:83px;resize:vertical}
+#v46Analysis button{border:0;border-radius:9px;padding:11px 13px;background:#dce9e1;color:#174b32;font-weight:700}
+#v46Analysis button.primary{background:#126842;color:white}
+#v46Analysis .buttons{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+#v46Analysis .status{font-size:13px;font-weight:600}
+</style>
+<script id="v46AnalysisLogic">
+(function(){
+'use strict';
+const KEY='coaches-v46-opposition-analysis';
+const CLUB_KEY='coaches-v44-opposition-club-library';
+const fields=[
+ ['strengths','Opposition strengths','Pressing, build-up, attacking patterns…'],
+ ['weaknesses','Opposition weaknesses','Spaces to exploit, defensive problems…'],
+ ['keyPlayers','Key players','Names, numbers, foot, individual tendencies…'],
+ ['tactics','Tactical observations','Shape in and out of possession, transitions…'],
+ ['setPieces','Set pieces','Corners, free kicks, goalkeeper protection…'],
+ ['matchPlan','Our match plan','Pressing triggers, matchups, attacking priorities…']
+];
+const $=id=>document.getElementById(id);
+let records={},active='',timer=null;
+function library(){try{return JSON.parse(localStorage.getItem(CLUB_KEY)||'null')||{}}catch(e){return {}}}
+function current(){const db=library();const club=(db.clubs||[]).find(c=>c.id===db.activeClub);const form=club?.formations?.find(f=>f.id===db.activeFormation);return {club,form}}
+function keyFor(c,f){return c.id+'::'+(f?.id||'club-notes')}
+function status(msg){if($('v46Status'))$('v46Status').textContent=msg}
+function read(){try{const obj=JSON.parse(localStorage.getItem(KEY)||'{}');records=obj&&typeof obj==='object'&&!Array.isArray(obj)?obj:{}}catch(e){records={}}}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(records));return true}catch(e){status('Save failed. Export your notes and check phone storage.');return false}}
+function collect(){const r={};for(const [k] of fields)r[k]=$('v46_'+k)?.value||'';return r}
+function saveCurrent(){if(!active)return;records[active]={...collect(),updated:new Date().toISOString()};if(persist())status('Analysis saved automatically · '+new Date().toLocaleTimeString())}
+function load(){const {club,form}=current();const inputs=fields.map(([k])=>$('v46_'+k));
+ if(!club){active='';$('v46Context').textContent='Add or select an opposition club above to begin.';inputs.forEach(el=>{el.value='';el.disabled=true});return}
+ const newKey=keyFor(club,form);if(active&&active!==newKey)saveCurrent();
+ active=newKey;$('v46Context').textContent='Scouting: '+club.name+(form?' · '+form.name:' · general club notes');
+ const r=records[active]||{};fields.forEach(([k])=>{$('v46_'+k).value=r[k]||'';$('v46_'+k).disabled=false});
+ status(r.updated?'Loaded notes saved '+new Date(r.updated).toLocaleString():'New analysis — changes save as you type.');
+}
+function download(obj,name){const blob=new Blob([JSON.stringify(obj,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),2000)}
+function exportNotes(){saveCurrent();const {club}=current();if(!club)return status('Select a club first.');
+ const entries={};for(const [k,v] of Object.entries(records))if(k.startsWith(club.id+'::'))entries[k.slice(club.id.length+2)]=v;
+ download({type:'coaches-v46-opposition-analysis',version:46,clubName:club.name,formations:(club.formations||[]).map(f=>({id:f.id,name:f.name})),entries},'scouting-'+club.name.replace(/[^a-z0-9_-]/gi,'_')+'.json');
+ status('Analysis backup downloaded. Export the club separately for player formations.');
+}
+async function importNotes(file){if(!file)return;const {club}=current();if(!club)return status('Select the destination club first.');
+ try{const obj=JSON.parse(await file.text());if(obj.type!=='coaches-v46-opposition-analysis'||!obj.entries||typeof obj.entries!=='object'||Object.keys(obj.entries).length>150)throw Error('Not a valid V46 scouting backup.');
+ if(!confirm('Import scouting notes into '+club.name+'? Notes for matching formations may be replaced.'))return;
+ const mapping=new Map((club.formations||[]).map(f=>[f.name.toLowerCase(),f.id]));
+ const sourceNames=new Map((obj.formations||[]).map(f=>[f.id,f.name]));
+ let count=0;
+ for(const [oldId,entry] of Object.entries(obj.entries)){
+   if(!entry||typeof entry!=='object')continue;
+   const id=oldId==='club-notes'?'club-notes':mapping.get(String(sourceNames.get(oldId)||'').toLowerCase());
+   if(!id)continue;
+   const clean={};for(const [k] of fields)clean[k]=String(entry[k]||'').slice(0,20000);
+   records[keyFor(club,{id})]={...clean,updated:new Date().toISOString()};count++;
+ }
+ if(!persist())return;active='';load();status('Imported '+count+' scouting note sets into '+club.name+'.');
+ }catch(e){status('Import failed: '+e.message)}}
+function init(){
+ const lib=$('v44Library');if(!lib||$('v46Analysis'))return;
+ read();const section=document.createElement('section');section.id='v46Analysis';
+ const h=document.createElement('h3');h.textContent='🔎 Opposition Match Analysis · V46';section.append(h);
+ const desc=document.createElement('p');desc.textContent='Keep scouting notes for each club and formation. Notes save automatically on this device.';section.append(desc);
+ const context=document.createElement('p');context.id='v46Context';section.append(context);
+ for(const [k,title,hint] of fields){
+  const label=document.createElement('label');label.textContent=title;label.htmlFor='v46_'+k;
+  const input=document.createElement('textarea');input.id='v46_'+k;input.placeholder=hint;input.maxLength=20000;
+  input.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(saveCurrent,450)});
+  input.addEventListener('change',()=>{clearTimeout(timer);saveCurrent()});
+  section.append(label,input);
+ }
+ const buttons=document.createElement('div');buttons.className='buttons';
+ const save=document.createElement('button');save.className='primary';save.textContent='💾 Save analysis';save.onclick=()=>{clearTimeout(timer);saveCurrent()};
+ const exp=document.createElement('button');exp.textContent='Export scouting notes';exp.onclick=exportNotes;
+ const imp=document.createElement('button');imp.textContent='Import scouting notes';imp.onclick=()=>$('v46ImportFile').click();
+ const file=document.createElement('input');file.type='file';file.id='v46ImportFile';file.accept='.json,application/json';file.hidden=true;file.onchange=async e=>{await importNotes(e.target.files[0]);e.target.value=''};
+ buttons.append(save,exp,imp,file);section.append(buttons);
+ const msg=document.createElement('p');msg.id='v46Status';msg.className='status';msg.setAttribute('role','status');section.append(msg);
+ lib.insertAdjacentElement('afterend',section);
+ for(const id of ['v44Club','v44Formation'])$(id)?.addEventListener('change',()=>{clearTimeout(timer);setTimeout(load,0)});
+ for(const id of ['v44AddClub','v44AddForm','v44Duplicate','v44Delete','v44Import'])$(id)?.addEventListener('click',()=>{clearTimeout(timer);setTimeout(load,200)});
+ load();window.addEventListener('pagehide',()=>{clearTimeout(timer);saveCurrent()});
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
