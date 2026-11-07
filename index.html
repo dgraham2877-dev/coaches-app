@@ -326,7 +326,7 @@ applyClubBrand(safeBrand());
 // V11 game-day opposition roster: independent of the training tactics opposition tokens.
 const OPP_DEFAULT={formation:'4-2-3-1',players:Array.from({length:11},(_,i)=>({number:String(i+1),name:''})),points:null};
 function initOppositionMatch(){const old=state.matchOpposition||{};let formation='4-2-3-1';try{formation=parseShape(old.formation||formation).label}catch{}const players=Array.from({length:11},(_,i)=>({number:String(old.players?.[i]?.number??i+1),name:String(old.players?.[i]?.name??'')}));const points=Array.isArray(old.points)&&old.points.length===11&&old.points.every(p=>Array.isArray(p)&&p.length===2&&p.every(Number.isFinite))?old.points.map(p=>[...p]):oppositionShapePoints(formation);state.matchOpposition={formation,players,points};}
-function oppositionShapePoints(label){return shapePositions(label).map(([x,y])=>[x,100-y]);}
+function oppositionShapePoints(label){const points=shapePositions(label).map(([x,y])=>[x,100-y]);if(label.replace(/\s/g,'')==='4-2-3-1'&&points.length===11){points[5]=[39,42];points[6]=[61,48];}return points;}
 function oppRosterToState(){document.querySelectorAll('.opp-roster-row').forEach((row,i)=>{state.matchOpposition.players[i]={number:row.querySelector('.opp-number').value.trim().slice(0,3),name:row.querySelector('.opp-name').value.trim().slice(0,65)}});}
 function renderOppositionRoster(){const target=document.getElementById('oppMatchRoster');target.replaceChildren();state.matchOpposition.players.forEach((p,i)=>{const row=document.createElement('div');row.className='opp-roster-row';const index=document.createElement('strong');index.textContent=i===0?'GK':String(i+1);const number=document.createElement('input');number.className='opp-number';number.type='text';number.inputMode='numeric';number.maxLength=3;number.placeholder='#';number.setAttribute('aria-label','Player '+(i+1)+' shirt number');number.value=p.number;const name=document.createElement('input');name.className='opp-name';name.maxLength=65;name.placeholder='Player name';name.setAttribute('aria-label','Player '+(i+1)+' name');name.value=p.name;const update=()=>{oppRosterToState();drawOppositionMatchPitch();save()};number.addEventListener('change',update);name.addEventListener('change',update);row.append(index,number,name);target.append(row)});}
 function drawOppositionMatchPitch(){const pitch=document.getElementById('oppMatchPitch');pitch.querySelectorAll('.opp-token').forEach(el=>el.remove());state.matchOpposition.points.forEach(([x,y],i)=>{const p=state.matchOpposition.players[i],token=document.createElement('div');token.className='opp-token';token.textContent=p.number||'–';token.style.left=x+'%';token.style.top=y+'%';const caption=document.createElement('span');caption.textContent=p.name|| (i===0?'GK':'Player '+(i+1));token.append(caption);pitch.append(token);token.addEventListener('pointerdown',e=>{e.preventDefault();token.setPointerCapture(e.pointerId)});token.addEventListener('pointermove',e=>{if(!token.hasPointerCapture(e.pointerId))return;const r=pitch.getBoundingClientRect();const point=[Math.max(7,Math.min(93,(e.clientX-r.left)/r.width*100)),Math.max(7,Math.min(93,(e.clientY-r.top)/r.height*100))];state.matchOpposition.points[i]=point;token.style.left=point[0]+'%';token.style.top=point[1]+'%'});token.addEventListener('pointerup',()=>save())})}
@@ -878,6 +878,41 @@ function init(){
  if(bottom){bottom.querySelectorAll('button').forEach(b=>{
   if(/match/i.test(b.textContent)&&!/scout/i.test(b.textContent))b.textContent='🔍 Scout';
  });}
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+<style id="v36PlayerColoursStyle">
+#v36ColourPanel{margin:12px 0;padding:14px;background:#eef7f0;border:1px solid #c7ddcf;border-radius:14px}
+#v36ColourPanel summary{font-weight:800;cursor:pointer;padding:8px 0;min-height:40px}
+.v36-colour-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:12px 0}
+.v36-colour-swatch{display:flex;flex-direction:column;align-items:center;gap:5px;background:transparent;border:0;padding:6px 2px;color:#183e2c;font-size:12px}
+.v36-colour-swatch .dot{width:42px;height:42px;border-radius:50%;border:2px solid #244a36;display:grid;place-items:center;font-weight:900;box-shadow:0 1px 4px #0002}
+.v36-colour-swatch[aria-pressed="true"] .dot{outline:3px solid #e6a82c;outline-offset:2px}
+#v36ColourPanel select{width:100%;margin:4px 0 10px}
+#v36ColourPanel .v36-colour-help{font-size:12px;color:#526a5a}
+</style>
+<script id="v36PlayerColoursScript">
+(function(){'use strict';
+const palette=[['White','#ffffff'],['Red','#e53935'],['Blue','#2563eb'],['Yellow','#facc15'],['Green','#16a34a'],['Black','#171717'],['Orange','#f97316'],['Purple','#9333ea']];
+const key='coaches-v36-player-colours';
+let settings={ours:'#ffffff',opposition:'#e53935',number:'auto'};
+function valid(c){return palette.some(p=>p[1]===c)}
+function read(){try{const x=JSON.parse(localStorage.getItem(key)||'{}');if(valid(x.ours))settings.ours=x.ours;if(valid(x.opposition))settings.opposition=x.opposition;if(['auto','white','black'].includes(x.number))settings.number=x.number}catch(e){}}
+function contrast(hex){const rgb=[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255).map(c=>c<=.04045?c/12.92:((c+.055)/1.055)**2.4);return rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722>.42?'#172b21':'#ffffff'}
+function apply(){const own=settings.ours,opp=settings.opposition;const ownText=settings.number==='auto'?contrast(own):settings.number==='white'?'#ffffff':'#111111';const oppText=settings.number==='auto'?contrast(opp):settings.number==='white'?'#ffffff':'#111111';
+ const css=document.getElementById('v36ColourDynamic')||document.head.appendChild(Object.assign(document.createElement('style'),{id:'v36ColourDynamic'}));
+ css.textContent='#pitch .player:not(.op-player){background:'+own+'!important;color:'+ownText+'!important}#pitch .player.op-player{background:'+opp+'!important;color:'+oppText+'!important}#oppMatchPitch .opp-token,.opp-match-pitch .opp-token,#oppMatchPitch .opp-player,#oppMatchPitch .op-player,.opp-match-pitch .opp-player,.opp-match-pitch .op-player{background:'+opp+'!important;color:'+oppText+'!important}';
+ document.querySelectorAll('.v36-colour-swatch').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.hex===settings[b.dataset.team])));
+ const s=document.getElementById('v36NumberColour');if(s)s.value=settings.number;
+}
+function save(){try{localStorage.setItem(key,JSON.stringify(settings));const e=document.getElementById('v36ColourStatus');if(e)e.textContent='Player colours saved on this device.'}catch(e){const x=document.getElementById('v36ColourStatus');if(x)x.textContent='Could not save colours. Check browser storage.'}apply()}
+function buildSwatches(team,root){palette.forEach(([name,hex])=>{const b=document.createElement('button');b.type='button';b.className='v36-colour-swatch';b.dataset.hex=hex;b.dataset.team=team;b.setAttribute('aria-label',name+' '+team+' player circles');const dot=document.createElement('span');dot.className='dot';dot.style.background=hex;dot.style.color=contrast(hex);dot.textContent='9';const text=document.createElement('span');text.textContent=name;b.append(dot,text);b.addEventListener('click',()=>{settings[team]=hex;save()});root.append(b)})}
+function fixNav(){const nav=document.querySelector('.v29-bottom');if(!nav)return;const buttons=[...nav.querySelectorAll('button')];function select(b){buttons.forEach(x=>{x.classList.toggle('active',x===b);if(x===b)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current')})}buttons.forEach(b=>b.addEventListener('click',()=>{select(b)}));const original=window.v29Go;if(typeof original==='function'){window.v29Go=function(id,anchor){original(id,anchor);const match=buttons.find(b=>anchor==='oppositionMatchCard'?/Opposition/.test(b.textContent):b.dataset.tab===id&&!/Opposition/.test(b.textContent));if(match)select(match)}}}
+function init(){read();const pitch=document.getElementById('pitch');if(!pitch)return;const host=document.getElementById('systemDesigner')||pitch;const panel=document.createElement('details');panel.id='v36ColourPanel';panel.innerHTML='<summary>🎨 Player Colours · Our Team & Opposition</summary><p class="v36-colour-help">Choose colours for the tactical pitch. Your choices save automatically and do not change player names or formations.</p><label>Our team circles</label><div class="v36-colour-grid" id="v36OurColours"></div><label>Opposition circles</label><div class="v36-colour-grid" id="v36OppColours"></div><label for="v36NumberColour">Shirt number colour</label><select id="v36NumberColour"><option value="auto">Automatic contrast</option><option value="white">White</option><option value="black">Black</option></select><p id="v36ColourStatus" role="status" class="v36-colour-help">Colours are saved separately from your tactical plans.</p>';
+ host.parentNode.insertBefore(panel,host);buildSwatches('ours',panel.querySelector('#v36OurColours'));buildSwatches('opposition',panel.querySelector('#v36OppColours'));panel.querySelector('#v36NumberColour').addEventListener('change',e=>{settings.number=e.target.value;save()});apply();fixNav();
+ const title=document.querySelector('#v29Dashboard>h2');if(title)title.textContent='Coaching Dashboard';
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
