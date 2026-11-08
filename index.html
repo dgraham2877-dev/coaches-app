@@ -82,7 +82,7 @@ body.v36-unified #home.v29-settings #v29Dashboard{display:none!important}
 body.v36-unified .v29-bottom{overflow-x:auto;justify-content:space-around}
 body.v36-unified .v29-bottom button{white-space:nowrap}
 @media(max-width:390px){body.v36-unified #v29Dashboard .v29-tile{padding:12px;min-height:108px}body.v36-unified #v30Reports .v30-actions{grid-template-columns:1fr 1fr}}
-</style></head><body><header><small id="coachBrandSubtitle" hidden style="display:none!important">PROFESSIONAL FOOTBALL COACHING WORKSPACE</small><h1 style="display:flex;align-items:center;gap:12px"><img alt="Club or soccer ball app icon" id="coachBrandLogo" src="./icons/icon-192.png" style="width:56px;height:56px;object-fit:contain;border-radius:8px"/> <span id="coachBrandHeading">COACHES APP V54</span></h1><small>Professional Football Coaching Workspace · <span id="notice">Saved on this device</span></small><button hidden="" id="installSouths" onclick="installSouths()" style="margin:10px auto;padding:10px 18px;background:#f2d477;color:#173b2d;border:0;border-radius:12px;font-weight:700">Install Coaches App</button></header><main>
+</style></head><body><header><small id="coachBrandSubtitle" hidden style="display:none!important">PROFESSIONAL FOOTBALL COACHING WORKSPACE</small><h1 style="display:flex;align-items:center;gap:12px"><img alt="Club or soccer ball app icon" id="coachBrandLogo" src="./icons/icon-192.png" style="width:56px;height:56px;object-fit:contain;border-radius:8px"/> <span id="coachBrandHeading">COACHES APP V55</span></h1><small>Professional Football Coaching Workspace · <span id="notice">Saved on this device</span></small><button hidden="" id="installSouths" onclick="installSouths()" style="margin:10px auto;padding:10px 18px;background:#f2d477;color:#173b2d;border:0;border-radius:12px;font-weight:700">Install Coaches App</button></header><main>
 <section class="panel active" id="home"><h2>Coaching dashboard</h2><section class="card" id="v19Manager"><h2>Club Manager · V29</h2><p class="muted">Select a club card to open its workspace. Archive, back up or permanently delete old clubs safely.</p><div class="v20-club-grid" id="v20ClubCards"></div><div class="v20-actions" id="v20ClubActions"></div><label>Current club</label><select id="v19Club" onchange="v19ClubChanged()"></select><label>Current team</label><select id="v19Team" onchange="v19SwitchTeam()"></select><div class="grid2"><div><label>New club name</label><input id="v19NewClub" maxlength="65" placeholder="Your club name"/><button onclick="v19CreateClub()">Create club</button></div><div><label>New team name</label><input id="v19NewTeam" maxlength="65" placeholder="U18 / U23 / First Team"/><button onclick="v19CreateTeam()">Add team</button></div></div><div style="margin-top:12px"><button class="secondary" onclick="v19Rename()">Rename current club/team</button> <button class="secondary danger" onclick="v20DeleteTeam()">Delete current team</button></div><p class="tiny muted">Club and team records are saved on this device. Export backups before deleting or clearing browser data. Cloud sharing remains a separate, optional feature.</p></section>
 <div class="card" id="clubBranding"><h2>Club identity &amp; colours</h2><p class="muted">Personalise the coaching workspace for any club. Your changes stay on this device.</p>
 <label for="clubNameInput">Club name</label><input autocomplete="off" id="clubNameInput" maxlength="65" placeholder="e.g. Souths United"/>
@@ -316,7 +316,7 @@ const CLUB_BRAND_KEY='coaches-app-club-brand-v10';
 let clubLogoDraft=null;
 const $brand=id=>document.getElementById(id);
 function safeBrand(){try{return JSON.parse(localStorage.getItem(CLUB_BRAND_KEY)||'{}')}catch{return {}}}
-function applyClubBrand(b){const primary=/^#[0-9a-f]{6}$/i.test(b.primary||'')?b.primary:'#123d2e';const accent=/^#[0-9a-f]{6}$/i.test(b.accent||'')?b.accent:'#f2d477';document.documentElement.style.setProperty('--coach-primary',primary);document.documentElement.style.setProperty('--coach-accent',accent);const name=typeof b.name==='string'?b.name.slice(0,65).trim():''; $brand('coachBrandHeading').textContent='COACHES APP V54';$brand('coachBrandSubtitle').textContent='PROFESSIONAL FOOTBALL COACHING WORKSPACE';const logo=typeof b.logo==='string'&&/^data:image\/(png|jpeg|webp);base64,/.test(b.logo)?b.logo:'./icons/icon-192.png';$brand('coachBrandLogo').src=logo;$brand('clubLogoPreview').src=logo;$brand('clubNameInput').value=name;$brand('clubPrimary').value=primary;$brand('clubAccent').value=accent;clubLogoDraft=logo.startsWith('data:')?logo:null;}
+function applyClubBrand(b){const primary=/^#[0-9a-f]{6}$/i.test(b.primary||'')?b.primary:'#123d2e';const accent=/^#[0-9a-f]{6}$/i.test(b.accent||'')?b.accent:'#f2d477';document.documentElement.style.setProperty('--coach-primary',primary);document.documentElement.style.setProperty('--coach-accent',accent);const name=typeof b.name==='string'?b.name.slice(0,65).trim():''; $brand('coachBrandHeading').textContent='COACHES APP V55';$brand('coachBrandSubtitle').textContent='PROFESSIONAL FOOTBALL COACHING WORKSPACE';const logo=typeof b.logo==='string'&&/^data:image\/(png|jpeg|webp);base64,/.test(b.logo)?b.logo:'./icons/icon-192.png';$brand('coachBrandLogo').src=logo;$brand('clubLogoPreview').src=logo;$brand('clubNameInput').value=name;$brand('clubPrimary').value=primary;$brand('clubAccent').value=accent;clubLogoDraft=logo.startsWith('data:')?logo:null;}
 $brand('clubLogoInput').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>1024*1024){alert('Choose a PNG, JPG or WebP image under 1 MB.');e.target.value='';return;}const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file)});clubLogoDraft=data;$brand('clubLogoPreview').src=data;});
 function resetClubLogo(){clubLogoDraft=null;$brand('clubLogoInput').value='';$brand('clubLogoPreview').src='./icons/icon-192.png';}
 function saveClubBranding(){const b={name:$brand('clubNameInput').value.trim(),primary:$brand('clubPrimary').value,accent:$brand('clubAccent').value,logo:clubLogoDraft};try{localStorage.setItem(CLUB_BRAND_KEY,JSON.stringify(b));applyClubBrand(b);alert('Club branding saved on this device.')}catch(e){alert('Storage is full. Try a smaller club crest.')}}
@@ -697,6 +697,7 @@ function init(){document.body.classList.add('v28-compact');const home=document.g
 if(tactics){const heading=tactics.querySelector('h2');const nav=launcher('Tactics shortcuts','Choose the tool you need — other areas stay tucked away.',[['⚽ Interactive pitch','tactics','pitch',true],['🧩 Formation','tactics','systemDesigner'],['💾 Save positions','tactics','v24PitchSavePanel'],['👥 Player names','tactics','v24PlayerNamesPanel'],['🔄 Our bench','tactics','v25BenchPanel'],['🛡️ Opposition + bench','tactics','oppositionMatchCard'],['🎯 Play designer','tactics','v24PlayDesigner'],['📺 Presentation','tactics','v24ThreeD']]);heading.insertAdjacentElement('afterend',nav)}
 fold('v24PlayerNamesPanel','👥 Starting XI · Names & numbers');fold('v25BenchPanel','🔄 Our substitute bench');fold('oppositionMatchCard','🛡️ Opposition XI, bench & scouting');
 }
+window.coachesCompleteExport={pdf:exportPdf,pptx:exportPptx,collect,diagrams};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script><script id="v29ProfessionalScript">
@@ -746,6 +747,7 @@ function init(){
  // Preserve existing explicit Save Positions control; also save after a player drag completes.
  const pitch=byId('pitch');if(pitch){pitch.addEventListener('pointerup',()=>{clearTimeout(timer);timer=setTimeout(()=>{try{if(typeof window.v24SavePitchPositions==='function')window.v24SavePitchPositions()}catch(e){console.error(e)}},500)});}
 }
+window.coachesCompleteExport={pdf:exportPdf,pptx:exportPptx,collect,diagrams};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script><style>
@@ -774,6 +776,7 @@ const xml=s=>esc(s).replace(/\r/g,'');
 function slide(title,body){let paras=String(body).split('\n').slice(0,20).map(line=>`<a:p><a:pPr marL="0"/><a:r><a:rPr lang="en-AU" sz="1800"/><a:t>${xml(line.slice(0,150))}</a:t></a:r><a:endParaRPr lang="en-AU"/></a:p>`).join('');const shape=(id,y,h,content)=>`<p:sp><p:nvSpPr><p:cNvPr id="${id}" name="Text ${id}"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="650000" y="${y}"/><a:ext cx="7900000" cy="${h}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr wrap="square"/><a:lstStyle/>${content}</p:txBody></p:sp>`;return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><p:sld xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main"><p:cSld><p:spTree><p:nvGrpSpPr><p:cNvPr id="1" name=""/><p:cNvGrpSpPr/><p:nvPr/></p:nvGrpSpPr><p:grpSpPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="0" cy="0"/><a:chOff x="0" y="0"/><a:chExt cx="0" cy="0"/></a:xfrm></p:grpSpPr>${shape(2,350000,900000,`<a:p><a:r><a:rPr lang="en-AU" sz="3200" b="1"><a:solidFill><a:srgbClr val="176344"/></a:solidFill></a:rPr><a:t>${xml(title)}</a:t></a:r></a:p>`)}${shape(3,1400000,4700000,paras)}</p:spTree></p:cSld><p:clrMapOvr><a:masterClrMapping/></p:clrMapOvr></p:sld>`}
 function pptx(r){let pages=lines(r),files=[];const rel='http://schemas.openxmlformats.org/package/2006/relationships';files.push(['[Content_Types].xml',`<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/ppt/presentation.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml"/>${pages.map((_,i)=>`<Override PartName="/ppt/slides/slide${i+1}.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slide+xml"/>`).join('')}</Types>`]);files.push(['_rels/.rels',`<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="${rel}"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="ppt/presentation.xml"/></Relationships>`]);files.push(['ppt/presentation.xml',`<?xml version="1.0" encoding="UTF-8"?><p:presentation xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main"><p:sldIdLst>${pages.map((_,i)=>`<p:sldId id="${256+i}" r:id="rId${i+1}"/>`).join('')}</p:sldIdLst><p:sldSz cx="9144000" cy="6858000" type="screen4x3"/><p:notesSz cx="6858000" cy="9144000"/></p:presentation>`]);files.push(['ppt/_rels/presentation.xml.rels',`<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="${rel}">${pages.map((_,i)=>`<Relationship Id="rId${i+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/slide" Target="slides/slide${i+1}.xml"/>`).join('')}</Relationships>`]);pages.forEach(([h,b],i)=>files.push([`ppt/slides/slide${i+1}.xml`,slide(h,b)]));let blob=zip(files),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Coaches_Match_Report_'+(r.date||'match')+'.pptx';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),3000);status('PowerPoint downloaded. Open it in PowerPoint to edit the slides.')}
 function init(){let dash=$('v29Dashboard');if(!dash)return;let box=document.createElement('section');box.id='v30Reports';box.innerHTML='<h3>📊 Post-Match Reports</h3><p class="v30-muted">Save a finished match, then export an editable PowerPoint or print to PDF. Your match data stays in the app.</p><div class="v30-actions"><button type="button" id="v30Save">Save Report</button><button type="button" id="v30PPT">PowerPoint</button><button type="button" id="v30PDF">PDF</button></div><details><summary>Match History</summary><div id="v30Archive"></div></details><p class="v30-muted" id="v30Status" role="status"></p>';dash.appendChild(box);$('v30Save').onclick=saveMatch;$('v30PPT').onclick=()=>pptx(archive()[0]||collect());$('v30PDF').onclick=()=>printPDF(archive()[0]||collect());box.addEventListener('click',e=>{let b=e.target.closest('[data-ppt],[data-pdf]');if(!b)return;let a=archive();let idx=Number(b.dataset.ppt??b.dataset.pdf);if(!a[idx])return;if(b.hasAttribute('data-ppt'))pptx(a[idx]);else printPDF(a[idx])});render();let h=dash.querySelector('h2');if(h)h.textContent='Coaches App V30';}
+window.coachesCompleteExport={pdf:exportPdf,pptx:exportPptx,collect,diagrams};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script><script>
@@ -834,6 +837,7 @@ const report=$('v30Reports');if(report){const p=document.createElement('p');p.cl
 const backupPanel=$('v34Backup')?.closest('details');if(backupPanel){const help=document.createElement('details');help.className='v35-checklist';help.innerHTML='<summary>Final setup checklist</summary><ol><li>Download a full backup before updating.</li><li>Change a base formation and reload to confirm it stays saved.</li><li>Save and reload a tactical plan with player names.</li><li>Save an opposition lineup and bench.</li><li>Create a sample report and open its PowerPoint and PDF exports.</li><li>Keep your previous GitHub version until these checks pass on your phone.</li></ol>';backupPanel.append(help)}
 const h=document.querySelector('header small');if(h&&h.textContent.includes('V28'))h.textContent=h.textContent.replace(/V(?:28|29|33|34)/,'V35');
 }
+window.coachesCompleteExport={pdf:exportPdf,pptx:exportPptx,collect,diagrams};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
@@ -849,7 +853,7 @@ function init(){
  if(head){
    const nodes=head.querySelectorAll('small');
    nodes.forEach(n=>{if(n.id==='coachBrandSubtitle'){n.hidden=true;n.style.display='none';}});
-   const title=head.querySelector('h1');if(title)title.textContent='COACHES APP V54';
+   const title=head.querySelector('h1');if(title)title.textContent='COACHES APP V55';
  }
  const reports=document.getElementById('v30Reports');
  if(reports){
@@ -879,6 +883,7 @@ function init(){
   if(/match/i.test(b.textContent)&&!/scout/i.test(b.textContent))b.textContent='🔍 Scout';
  });}
 }
+window.coachesCompleteExport={pdf:exportPdf,pptx:exportPptx,collect,diagrams};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
@@ -914,6 +919,7 @@ function init(){read();const pitch=document.getElementById('pitch');if(!pitch)re
  host.parentNode.insertBefore(panel,host);buildSwatches('ours',panel.querySelector('#v36OurColours'));buildSwatches('opposition',panel.querySelector('#v36OppColours'));panel.querySelector('#v36NumberColour').addEventListener('change',e=>{settings.number=e.target.value;save()});apply();fixNav();
  const title=document.querySelector('#v29Dashboard>h2');if(title)title.textContent='Coaching Dashboard';
 }
+window.coachesCompleteExport={pdf:exportPdf,pptx:exportPptx,collect,diagrams};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
@@ -1021,6 +1027,7 @@ function init(){
  if(pitch)observer.observe(pitch,{childList:true});
  if(opp)observer.observe(opp,{childList:true});
 }
+window.coachesCompleteExport={pdf:exportPdf,pptx:exportPptx,collect,diagrams};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
@@ -1104,7 +1111,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   const hint=document.createElement('small');hint.textContent='Drag the ball anywhere, or reset it beside the goalkeeper.';
   controls.append(button,hint);pitch.insertAdjacentElement('afterend',controls);
  }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+ window.coachesCompleteExport={pdf:exportPdf,pptx:exportPptx,collect,diagrams};
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
 
@@ -1191,6 +1199,7 @@ function init(){
  const status=document.createElement('p');status.id='v43SavedStatus';status.setAttribute('role','status');status.textContent='Your saved formations stay with this team on this device.';box.append(status);
  pitch.insertAdjacentElement('afterend',box);refresh();
 }
+window.coachesCompleteExport={pdf:exportPdf,pptx:exportPptx,collect,diagrams};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
@@ -1309,6 +1318,7 @@ function init(){const pitch=$('oppMatchPitch');if(!pitch||$('v44Library'))return
  const roster=$('oppMatchRoster');if(roster)roster.addEventListener('input',()=>schedule());
  window.addEventListener('pagehide',()=>{if(db.autosave)saveCurrent(true)});
 }
+window.coachesCompleteExport={pdf:exportPdf,pptx:exportPptx,collect,diagrams};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
@@ -1400,6 +1410,7 @@ function init(){
  for(const id of ['v44AddClub','v44AddForm','v44Duplicate','v44Delete','v44Import'])$(id)?.addEventListener('click',()=>{clearTimeout(timer);setTimeout(load,200)});
  load();window.addEventListener('pagehide',()=>{clearTimeout(timer);saveCurrent()});
 }
+window.coachesCompleteExport={pdf:exportPdf,pptx:exportPptx,collect,diagrams};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
@@ -1487,14 +1498,15 @@ else{render();setTimeout(render,700)}
    syncNavigation();
   }
   const old=document.getElementById('v43OppSaved');if(old){const parent=old.closest('details');if(parent&&parent.querySelector('summary')?.textContent.includes('Older manual'))parent.hidden=true;}
-  const heading=document.querySelector('head > title');if(heading)heading.textContent='Coaches App V54';
+  const heading=document.querySelector('head > title');if(heading)heading.textContent='Coaches App V55';
   // The GK token is close to the bottom boundary. Raise only its visible label.
   const pitch=document.getElementById('pitch');if(pitch){
    const adjust=()=>{pitch.querySelectorAll('.player').forEach(p=>{const label=p.querySelector('span');if(!label)return;const text=(label.textContent||'').trim();if(text==='GK')label.style.setProperty('top','25px','important')});};
    adjust();new MutationObserver(adjust).observe(pitch,{childList:true,subtree:false});
   }
  }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+ window.coachesCompleteExport={pdf:exportPdf,pptx:exportPptx,collect,diagrams};
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
 
@@ -1709,12 +1721,12 @@ function collect(){
  return groups;
 }
 function selected(){return categories.filter(([k])=>document.getElementById('v54-'+k)?.checked).map(([k])=>k)}
-function diagrams(){const out=[];try{if(state.systems)for(const [phase,sys] of Object.entries(state.systems)){if(Array.isArray(sys.points)&&sys.points.length===11)out.push({title:titleCase(phase)+' · '+(sys.label||'Formation'),points:sys.points,labels:sys.roles||sys.labels||[],numbers:Array.from({length:11},(_,i)=>i+1)})}}catch(e){}
- try{const match=state.oppMatch||state.oppositionMatch||state.oppositionLineup||state.oppLineup;if(match){const points=match.positions||match.points;if(Array.isArray(points)&&points.length===11)out.push({title:'Opposition · '+(match.formation||''),points,labels:match.players?.map(p=>p.name)||[],numbers:match.players?.map(p=>p.number)||[]})}}catch(e){}
+function diagrams(){const out=[];try{if(state.systems)for(const [phase,sys] of Object.entries(state.systems)){if(Array.isArray(sys.points)&&sys.points.length===11)out.push({title:titleCase(phase)+' · '+(sys.label||'Formation'),points:sys.points,labels:(Array.isArray(state.tacticPlayerNames)?state.tacticPlayerNames:(Array.isArray(state.v24PlayerNames)?state.v24PlayerNames:(sys.roles||sys.labels||[]))),numbers:Array.from({length:11},(_,i)=>state.startingXI?.[i]?.number||i+1)})}}catch(e){}
+ try{const match=state.matchOpposition||state.oppMatch||state.oppositionMatch||state.oppositionLineup||state.oppLineup;if(match){const points=match.points||match.positions;if(Array.isArray(points)&&points.length===11)out.push({title:'Opposition · '+(match.formation||''),points,labels:match.players?.map(p=>p.name)||[],numbers:match.players?.map(p=>p.number)||[]})}}catch(e){}
  return out}
 function pitchSvg(diagram){const marks=diagram.points.map((p,i)=>{const x=Number(Array.isArray(p)?p[0]:p.x),y=Number(Array.isArray(p)?p[1]:p.y);if(!Number.isFinite(x)||!Number.isFinite(y))return '';const label=diagram.labels?.[i]||state.tacticPlayerNames?.[i]||'';const num=diagram.numbers?.[i]||i+1;return `<circle cx="${x}" cy="${y}" r="4.2" fill="#fff" stroke="#173e2e" stroke-width=".8"/><text x="${x}" y="${y+1.3}" font-size="3.7" font-weight="bold" text-anchor="middle" fill="#173e2e">${esc(num)}</text><text x="${x}" y="${y+8}" font-size="3.1" text-anchor="middle" fill="white">${esc(label)}</text>`}).join('');return `<svg viewBox="0 0 100 100" width="390" height="390" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="100" height="100" fill="#247849"/><rect x="4" y="4" width="92" height="92" fill="none" stroke="white" stroke-width=".5"/><path d="M4 50H96" stroke="white" stroke-width=".5"/><circle cx="50" cy="50" r="12" fill="none" stroke="white" stroke-width=".5"/><rect x="28" y="4" width="44" height="14" fill="none" stroke="white" stroke-width=".5"/><rect x="28" y="82" width="44" height="14" fill="none" stroke="white" stroke-width=".5"/>${marks}</svg>`}
 function exportPdf(){const cats=selected();if(!cats.length)return alert('Select at least one section.');const g=collect(),ds=cats.includes('formations')?diagrams():[];const css=`<style>body{font:12px Arial,sans-serif;color:#163527;margin:25px}h1{color:#123d2e}h2{border-bottom:2px solid #22754c;padding-bottom:7px;page-break-after:avoid}h3{page-break-after:avoid}section{break-inside:avoid-page;margin:15px 0}pre{font:11px/1.5 Arial,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere}svg{max-width:100%;height:auto}.diagram{break-inside:avoid-page;page-break-inside:avoid}small{color:#567}@page{size:A4;margin:14mm}</style>`;
- let html=`<!doctype html><html><head><meta charset="utf-8"><title>Coaches App V54 Complete Report</title>${css}</head><body><h1>Coaches App · Complete Coaching Report</h1><p>Generated ${esc(new Date().toLocaleString())} · Selected sections: ${cats.length}</p>`;
+ let html=`<!doctype html><html><head><meta charset="utf-8"><title>Coaches App V55 Complete Report</title>${css}</head><body><h1>Coaches App · Complete Coaching Report</h1><p>Generated ${esc(new Date().toLocaleString())} · Selected sections: ${cats.length}</p>`;
  for(const [k,label] of categories){if(!cats.includes(k))continue;html+=`<h2>${esc(label)}</h2>`;if(k==='formations')for(const d of ds)html+=`<section class="diagram"><h3>${esc(d.title)}</h3>${pitchSvg(d)}</section>`;for(const rec of g[k])html+=`<section><h3>${esc(rec.name)}</h3><pre>${esc(rec.lines.join('\n'))}</pre></section>`;if(!g[k].length&&!(k==='formations'&&ds.length))html+='<p>No saved records in this section.</p>'}
  html+='</body></html>';const w=window.open('','_blank');if(!w)return alert('Allow pop-ups for the PDF print view.');w.document.open();w.document.write(html);w.document.close();w.focus();setTimeout(()=>{try{w.print()}catch(e){}},600);status('PDF print view opened. Choose Save as PDF in Android print options.');}
 function xml(x){return esc(plain(x)).replace(/&#39;/g,'&apos;')}
@@ -1727,6 +1739,42 @@ function zipFiles(files){const enc=new TextEncoder(),parts=[],central=[];let off
 function exportPptx(){const cats=selected();if(!cats.length)return alert('Select at least one section.');const g=collect(),slides=[{title:'Complete Coaching Report · V54',lines:['Created '+new Date().toLocaleString(),'Sections: '+cats.length,'Editable PowerPoint presentation']}];for(const [k,label] of categories){if(!cats.includes(k))continue;slides.push({title:label,lines:['Saved coaching information']});if(k==='formations')for(const d of diagrams())slides.push({title:d.title,diagram:d});for(const rec of g[k]){const all=[rec.name,...rec.lines].flatMap(line=>{const out=[];let s=String(line);while(s.length>105){out.push(s.slice(0,105));s=s.slice(105)}out.push(s);return out});for(let i=0;i<all.length;i+=11)slides.push({title:rec.name+(i?' (continued)':''),lines:all.slice(i,i+11)})}if(!g[k].length&&k!=='formations')slides.push({title:label,lines:['No saved records in this section.']})}if(slides.length>600)return alert('Too many slides. Select fewer sections to export in batches.');const files={};files['[Content_Types].xml']=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/ppt/presentation.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml"/>${slides.map((_,i)=>`<Override PartName="/ppt/slides/slide${i+1}.xml" ContentType="application/vnd.openxmlformats-officedocument.presentationml.slide+xml"/>`).join('')}</Types>`;files['_rels/.rels']=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="ppt/presentation.xml"/></Relationships>`;files['ppt/presentation.xml']=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><p:presentation xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main"><p:sldIdLst>${slides.map((_,i)=>`<p:sldId id="${256+i}" r:id="rId${i+1}"/>`).join('')}</p:sldIdLst><p:sldSz cx="12192000" cy="6858000" type="screen16x9"/><p:notesSz cx="6858000" cy="9144000"/></p:presentation>`;files['ppt/_rels/presentation.xml.rels']=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${slides.map((_,i)=>`<Relationship Id="rId${i+1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/slide" Target="slides/slide${i+1}.xml"/>`).join('')}</Relationships>`;slides.forEach((s,i)=>files[`ppt/slides/slide${i+1}.xml`]=slideXml(s.title,s.lines||[],s.diagram));const blob=zipFiles(files),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Coaches_App_V54_Complete_Report.pptx';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);status('PowerPoint download started: '+slides.length+' editable slides.');}
 function status(t){const e=document.getElementById('v54ExportStatus');if(e)e.textContent=t}
 function init(){if(document.getElementById('v54Export'))return;const root=document.createElement('section');root.id='v54Export';root.innerHTML=`<h2>Export Everything · V54</h2><p class="muted">Create a complete coaching report from your saved data. Select sections, then export to PDF or editable PowerPoint. Exports stay on your phone until you share them.</p><div class="v54-checks">${categories.map(([k,label])=>`<label><input id="v54-${k}" type="checkbox" checked> ${esc(label)}</label>`).join('')}</div><div class="v54-buttons"><button class="primary" id="v54Pdf" type="button">📄 Export PDF</button><button class="primary" id="v54Pptx" type="button">📊 Export PowerPoint</button></div><p class="v54-note">PDF uses Android Print → Save as PDF. PowerPoint downloads an editable .pptx file. Player and pitch graphics are generated from saved positions; other records are exported as text. Cloud credentials and videos are excluded.</p><p id="v54ExportStatus" role="status" class="play-status">Ready to export.</p>`;const home=document.getElementById('v29Dashboard')||document.getElementById('home');home.appendChild(root);document.getElementById('v54Pdf').addEventListener('click',exportPdf);document.getElementById('v54Pptx').addEventListener('click',exportPptx);}
+window.coachesCompleteExport={pdf:exportPdf,pptx:exportPptx,collect,diagrams};
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<style id="v55Styles">
+#v30Reports{display:none!important}#v54Export{display:none!important}
+#v55Hub{margin:18px 0;border:2px solid #88bda0;border-radius:17px;background:white;padding:17px;box-shadow:0 3px 12px #123d2e12}
+#v55Hub h2{margin:0 0 8px}#v55Hub .v55-main{width:100%;min-height:58px;font-size:17px;margin:12px 0;background:#126b42;color:white;border:0;border-radius:12px;font-weight:800}
+#v55Choice{display:none;background:#f0f7f2;padding:13px;border-radius:12px;margin-top:10px}#v55Choice.open{display:block}
+#v55Choice .v55-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0}#v55Choice .v55-actions button{min-height:56px;border:1px solid #b9d4c4;border-radius:10px;background:white;color:#153d2a;font-weight:750;font-size:15px}
+#v55Hub .v55-backup{min-height:44px;border:1px solid #bad2c1;background:#e6f1e9;border-radius:9px;padding:10px;font-weight:700;color:#17442d}
+#v55Hub .v55-status{font-size:13px;color:#215d3b;margin:9px 0}#v55Hub details{margin:10px 0}#v55Hub summary{font-weight:700;cursor:pointer}
+@media(max-width:380px){#v55Choice .v55-actions{grid-template-columns:1fr}}
+</style>
+<script id="v55OneSave">
+(function(){'use strict';
+function snapshot(){
+ // Flush any actively edited text field before invoking existing save routines.
+ try{if(document.activeElement&&document.activeElement.blur)document.activeElement.blur()}catch(e){}
+ const actions=['v24SavePlayerNames','v25SaveBench','saveOppositionLineup','v27SaveOppBench'];
+ const warnings=[];
+ try{if(typeof saveCurrentPhase==='function')saveCurrentPhase()}catch(e){warnings.push('formation')}
+ for(const name of actions){try{if(typeof window[name]==='function')window[name]()}catch(e){warnings.push(name)}}
+ try{if(typeof save==='function')save()}catch(e){warnings.push('main data')}
+ return warnings;
+}
+function init(){const dash=document.getElementById('v29Dashboard')||document.getElementById('home');if(!dash||document.getElementById('v55Hub'))return;
+ const el=document.createElement('section');el.id='v55Hub';el.innerHTML=`<h2>💾 Save & Export Everything · V55</h2><p class="muted">One button for your complete coaching workspace. Existing automatic saving remains enabled.</p><button class="v55-main" id="v55Save" type="button">💾 Save Complete Coaching Workspace</button><p id="v55Status" class="v55-status" role="status">Ready to save.</p><div id="v55Choice"><strong>Saved. Choose an export format:</strong><div class="v55-actions"><button type="button" id="v55PDF">📄 PDF</button><button type="button" id="v55PPT">📊 PowerPoint</button></div><p class="muted">PDF opens the Android print screen (choose Save as PDF). PowerPoint downloads an editable .pptx file. Both include the saved report sections and tactical diagrams.</p><details><summary>Choose report sections</summary><div id="v55Sections"></div></details><button class="v55-backup" type="button" id="v55Backup">⬇ Download editable data backup (JSON)</button></div><p class="muted">For your current club and team. Keep a JSON backup before changing or deleting app data. Videos and login credentials are not exported.</p>`;
+ dash.insertBefore(el,dash.firstChild);
+ const sections=document.getElementById('v55Sections');const old=document.querySelector('#v54Export .v54-checks');if(old){sections.appendChild(old);old.style.display='grid';}
+ const msg=document.getElementById('v55Status'),choice=document.getElementById('v55Choice');
+ document.getElementById('v55Save').onclick=()=>{const warnings=snapshot();choice.classList.add('open');msg.textContent=warnings.length?'Saved available data. Some modules need checking: '+warnings.join(', '):'Workspace saved on this device. Choose PDF or PowerPoint below.';};
+ document.getElementById('v55PDF').onclick=()=>{if(!window.coachesCompleteExport)return alert('Export engine unavailable.');window.coachesCompleteExport.pdf()};
+ document.getElementById('v55PPT').onclick=()=>{if(!window.coachesCompleteExport)return alert('Export engine unavailable.');window.coachesCompleteExport.pptx()};
+ document.getElementById('v55Backup').onclick=()=>{try{const raw={},exclude=/password|token|secret|credential|cloudkey|supabase/i;for(let i=0;i<localStorage.length;i++){const key=localStorage.key(i);if(!key||exclude.test(key))continue;if(/^(coaches-|souths-coach-|coaches-app-)/.test(key))raw[key]=localStorage.getItem(key)}const blob=new Blob([JSON.stringify({format:'coaches-app-v55-local-backup',created:new Date().toISOString(),records:raw},null,2)],{type:'application/json'});const a=document.createElement('a');const url=URL.createObjectURL(blob);a.href=url;a.download='Coaches_App_V55_Data_Backup.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);msg.textContent='Backup downloaded. Keep this file somewhere safe.'}catch(e){alert('Backup failed: '+e.message)}};
+}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
