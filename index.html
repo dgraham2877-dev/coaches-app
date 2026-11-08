@@ -82,7 +82,7 @@ body.v36-unified #home.v29-settings #v29Dashboard{display:none!important}
 body.v36-unified .v29-bottom{overflow-x:auto;justify-content:space-around}
 body.v36-unified .v29-bottom button{white-space:nowrap}
 @media(max-width:390px){body.v36-unified #v29Dashboard .v29-tile{padding:12px;min-height:108px}body.v36-unified #v30Reports .v30-actions{grid-template-columns:1fr 1fr}}
-</style></head><body><header><small id="coachBrandSubtitle" hidden style="display:none!important">PROFESSIONAL FOOTBALL COACHING WORKSPACE</small><h1 style="display:flex;align-items:center;gap:12px"><img alt="Club or soccer ball app icon" id="coachBrandLogo" src="./icons/icon-192.png" style="width:56px;height:56px;object-fit:contain;border-radius:8px"/> <span id="coachBrandHeading">COACHES APP V56</span></h1><small>Professional Football Coaching Workspace · <span id="notice">Saved on this device</span></small><button hidden="" id="installSouths" onclick="installSouths()" style="margin:10px auto;padding:10px 18px;background:#f2d477;color:#173b2d;border:0;border-radius:12px;font-weight:700">Install Coaches App</button></header><main>
+</style></head><body><header><small id="coachBrandSubtitle" hidden style="display:none!important">PROFESSIONAL FOOTBALL COACHING WORKSPACE</small><h1 style="display:flex;align-items:center;gap:12px"><img alt="Club or soccer ball app icon" id="coachBrandLogo" src="./icons/icon-192.png" style="width:56px;height:56px;object-fit:contain;border-radius:8px"/> <span id="coachBrandHeading">COACHES APP V57</span></h1><small>Professional Football Coaching Workspace · <span id="notice">Saved on this device</span></small><button hidden="" id="installSouths" onclick="installSouths()" style="margin:10px auto;padding:10px 18px;background:#f2d477;color:#173b2d;border:0;border-radius:12px;font-weight:700">Install Coaches App</button></header><main>
 <section class="panel active" id="home"><h2>Coaching dashboard</h2><section class="card" id="v19Manager"><h2>Club Manager · V29</h2><p class="muted">Select a club card to open its workspace. Archive, back up or permanently delete old clubs safely.</p><div class="v20-club-grid" id="v20ClubCards"></div><div class="v20-actions" id="v20ClubActions"></div><label>Current club</label><select id="v19Club" onchange="v19ClubChanged()"></select><label>Current team</label><select id="v19Team" onchange="v19SwitchTeam()"></select><div class="grid2"><div><label>New club name</label><input id="v19NewClub" maxlength="65" placeholder="Your club name"/><button onclick="v19CreateClub()">Create club</button></div><div><label>New team name</label><input id="v19NewTeam" maxlength="65" placeholder="U18 / U23 / First Team"/><button onclick="v19CreateTeam()">Add team</button></div></div><div style="margin-top:12px"><button class="secondary" onclick="v19Rename()">Rename current club/team</button> <button class="secondary danger" onclick="v20DeleteTeam()">Delete current team</button></div><p class="tiny muted">Club and team records are saved on this device. Export backups before deleting or clearing browser data. Cloud sharing remains a separate, optional feature.</p></section>
 <div class="card" id="clubBranding"><h2>Club identity &amp; colours</h2><p class="muted">Personalise the coaching workspace for any club. Your changes stay on this device.</p>
 <label for="clubNameInput">Club name</label><input autocomplete="off" id="clubNameInput" maxlength="65" placeholder="e.g. Souths United"/>
@@ -316,7 +316,7 @@ const CLUB_BRAND_KEY='coaches-app-club-brand-v10';
 let clubLogoDraft=null;
 const $brand=id=>document.getElementById(id);
 function safeBrand(){try{return JSON.parse(localStorage.getItem(CLUB_BRAND_KEY)||'{}')}catch{return {}}}
-function applyClubBrand(b){const primary=/^#[0-9a-f]{6}$/i.test(b.primary||'')?b.primary:'#123d2e';const accent=/^#[0-9a-f]{6}$/i.test(b.accent||'')?b.accent:'#f2d477';document.documentElement.style.setProperty('--coach-primary',primary);document.documentElement.style.setProperty('--coach-accent',accent);const name=typeof b.name==='string'?b.name.slice(0,65).trim():''; $brand('coachBrandHeading').textContent='COACHES APP V56';$brand('coachBrandSubtitle').textContent='PROFESSIONAL FOOTBALL COACHING WORKSPACE';const logo=typeof b.logo==='string'&&/^data:image\/(png|jpeg|webp);base64,/.test(b.logo)?b.logo:'./icons/icon-192.png';$brand('coachBrandLogo').src=logo;$brand('clubLogoPreview').src=logo;$brand('clubNameInput').value=name;$brand('clubPrimary').value=primary;$brand('clubAccent').value=accent;clubLogoDraft=logo.startsWith('data:')?logo:null;}
+function applyClubBrand(b){const primary=/^#[0-9a-f]{6}$/i.test(b.primary||'')?b.primary:'#123d2e';const accent=/^#[0-9a-f]{6}$/i.test(b.accent||'')?b.accent:'#f2d477';document.documentElement.style.setProperty('--coach-primary',primary);document.documentElement.style.setProperty('--coach-accent',accent);const name=typeof b.name==='string'?b.name.slice(0,65).trim():''; $brand('coachBrandHeading').textContent='COACHES APP V57';$brand('coachBrandSubtitle').textContent='PROFESSIONAL FOOTBALL COACHING WORKSPACE';const logo=typeof b.logo==='string'&&/^data:image\/(png|jpeg|webp);base64,/.test(b.logo)?b.logo:'./icons/icon-192.png';$brand('coachBrandLogo').src=logo;$brand('clubLogoPreview').src=logo;$brand('clubNameInput').value=name;$brand('clubPrimary').value=primary;$brand('clubAccent').value=accent;clubLogoDraft=logo.startsWith('data:')?logo:null;}
 $brand('clubLogoInput').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>1024*1024){alert('Choose a PNG, JPG or WebP image under 1 MB.');e.target.value='';return;}const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file)});clubLogoDraft=data;$brand('clubLogoPreview').src=data;});
 function resetClubLogo(){clubLogoDraft=null;$brand('clubLogoInput').value='';$brand('clubLogoPreview').src='./icons/icon-192.png';}
 function saveClubBranding(){const b={name:$brand('clubNameInput').value.trim(),primary:$brand('clubPrimary').value,accent:$brand('clubAccent').value,logo:clubLogoDraft};try{localStorage.setItem(CLUB_BRAND_KEY,JSON.stringify(b));applyClubBrand(b);alert('Club branding saved on this device.')}catch(e){alert('Storage is full. Try a smaller club crest.')}}
@@ -853,7 +853,7 @@ function init(){
  if(head){
    const nodes=head.querySelectorAll('small');
    nodes.forEach(n=>{if(n.id==='coachBrandSubtitle'){n.hidden=true;n.style.display='none';}});
-   const title=head.querySelector('h1');if(title)title.textContent='COACHES APP V56';
+   const title=head.querySelector('h1');if(title)title.textContent='COACHES APP V57';
  }
  const reports=document.getElementById('v30Reports');
  if(reports){
@@ -1728,29 +1728,7 @@ function pitchSvg(diagram){const marks=diagram.points.map((p,i)=>{const x=Number
 function exportPdf(){const cats=selected();if(!cats.length)return alert('Select at least one section.');const g=collect(),ds=cats.includes('formations')?diagrams():[];const css=`<style>body{font:12px Arial,sans-serif;color:#163527;margin:25px}h1{color:#123d2e}h2{border-bottom:2px solid #22754c;padding-bottom:7px;page-break-after:avoid}h3{page-break-after:avoid}section{break-inside:avoid-page;margin:15px 0}pre{font:11px/1.5 Arial,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere}svg{max-width:100%;height:auto}.diagram{break-inside:avoid-page;page-break-inside:avoid}small{color:#567}@page{size:A4;margin:14mm}</style>`;
  let html=`<!doctype html><html><head><meta charset="utf-8"><title>Coaches App V56 Complete Report</title>${css}</head><body><h1>Coaches App · Complete Coaching Report</h1><p>Generated ${esc(new Date().toLocaleString())} · Selected sections: ${cats.length}</p>`;
  for(const [k,label] of categories){if(!cats.includes(k))continue;html+=`<h2>${esc(label)}</h2>`;if(k==='formations')for(const d of ds)html+=`<section class="diagram"><h3>${esc(d.title)}</h3>${pitchSvg(d)}</section>`;for(const rec of g[k])html+=`<section><h3>${esc(rec.name)}</h3><pre>${esc(rec.lines.join('\n'))}</pre></section>`;if(!g[k].length&&!(k==='formations'&&ds.length))html+='<p>No saved records in this section.</p>'}
- html+='
-<style id="v56MarkerStyle">
-:root{--v56-team:#2478d4;--v56-opp:#e24b4b;--v56-gk:#f2c94c}
-#pitch .player:not(.op-player){background:var(--v56-team)!important;border-color:#fff!important;color:white!important}
-#pitch .player:first-of-type:not(.op-player){background:var(--v56-gk)!important;color:#172b22!important}
-#pitch .op-player,.opp-match-pitch .opp-token{background:var(--v56-opp)!important;border-color:#fff!important;color:white!important}
-#oppMatchPitch .opp-token:first-of-type{background:var(--v56-gk)!important;color:#172b22!important}
-#v56MarkerSettings{margin:15px 0;padding:14px;background:#f0f8f2;border:1px solid #bed8c6;border-radius:14px}
-#v56MarkerSettings .v56-colors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-#v56MarkerSettings input[type=color]{width:100%;height:45px;padding:3px}
-</style>
-<script id="v56MarkerFix">
-(function(){'use strict';
-const key='coaches-v56-marker-colours';const defaults={team:'#2478d4',opp:'#e24b4b',gk:'#f2c94c'};
-function get(){try{return {...defaults,...JSON.parse(localStorage.getItem(key)||'{}')}}catch(e){return {...defaults}}}
-function apply(){const c=get();for(const k of Object.keys(defaults)){if(!/^#[0-9a-f]{6}$/i.test(c[k]))c[k]=defaults[k];document.documentElement.style.setProperty('--v56-'+k,c[k])}return c}
-window.v56MarkerHex=function(diagram,i){const c=apply();const opp=/opposition/i.test(diagram?.title||'');return i===0?c.gk:(opp?c.opp:c.team)};
-function init(){apply();if(document.getElementById('v56MarkerSettings'))return;const parent=document.getElementById('v55Hub')||document.getElementById('v29Dashboard')||document.getElementById('home');if(!parent)return;const el=document.createElement('section');el.id='v56MarkerSettings';el.innerHTML='<h3>🎨 Pitch marker colours · V56</h3><p class="muted">Choose colours for your players, opposition and goalkeepers. These colours also appear in complete PDF and PowerPoint pitch diagrams.</p><div class="v56-colors"><label>Our team<input type="color" data-marker="team"></label><label>Opposition<input type="color" data-marker="opp"></label><label>Goalkeepers<input type="color" data-marker="gk"></label></div><button type="button" class="secondary" id="v56Reset">Reset marker colours</button><p class="muted">Your selections are saved automatically on this device.</p>';
-parent.append(el);const c=apply();el.querySelectorAll('[data-marker]').forEach(inp=>{inp.value=c[inp.dataset.marker];inp.addEventListener('input',()=>{const next=get();next[inp.dataset.marker]=inp.value;localStorage.setItem(key,JSON.stringify(next));apply()})});el.querySelector('#v56Reset').onclick=()=>{localStorage.setItem(key,JSON.stringify(defaults));el.querySelectorAll('[data-marker]').forEach(inp=>inp.value=defaults[inp.dataset.marker]);apply()};}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
-})();
-</script>
-</body></html>';const w=window.open('','_blank');if(!w)return alert('Allow pop-ups for the PDF print view.');w.document.open();w.document.write(html);w.document.close();w.focus();setTimeout(()=>{try{w.print()}catch(e){}},600);status('PDF print view opened. Choose Save as PDF in Android print options.');}
+ html+='</body></html>';const w=window.open('','_blank');if(!w)return alert('Allow pop-ups for the PDF print view.');w.document.open();w.document.write(html);w.document.close();w.focus();setTimeout(()=>{try{w.print()}catch(e){}},600);status('PDF print view opened. Choose Save as PDF in Android print options.');}
 function xml(x){return esc(plain(x)).replace(/&#39;/g,'&apos;')}
 function shapeText(text,x,y,w,h,opts={}){const color=opts.color||'183F2C',size=opts.size||1600;return `<p:sp><p:nvSpPr><p:cNvPr id="${++shapeText.id}" name="Text ${shapeText.id}"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="${x}" y="${y}"/><a:ext cx="${w}" cy="${h}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr wrap="square"/><a:lstStyle/><a:p><a:pPr/><a:r><a:rPr lang="en-AU" sz="${size}" b="${opts.bold?1:0}"><a:solidFill><a:srgbClr val="${color}"/></a:solidFill></a:rPr><a:t>${xml(text)}</a:t></a:r><a:endParaRPr lang="en-AU"/></a:p></p:txBody></p:sp>`}
 shapeText.id=1;
@@ -1798,5 +1776,37 @@ function init(){const dash=document.getElementById('v29Dashboard')||document.get
  document.getElementById('v55Backup').onclick=()=>{try{const raw={},exclude=/password|token|secret|credential|cloudkey|supabase/i;for(let i=0;i<localStorage.length;i++){const key=localStorage.key(i);if(!key||exclude.test(key))continue;if(/^(coaches-|souths-coach-|coaches-app-)/.test(key))raw[key]=localStorage.getItem(key)}const blob=new Blob([JSON.stringify({format:'coaches-app-v55-local-backup',created:new Date().toISOString(),records:raw},null,2)],{type:'application/json'});const a=document.createElement('a');const url=URL.createObjectURL(blob);a.href=url;a.download='Coaches_App_V55_Data_Backup.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);msg.textContent='Backup downloaded. Keep this file somewhere safe.'}catch(e){alert('Backup failed: '+e.message)}};
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+<style id="v57MarkerStyle">
+:root{--v56-team:#2478d4;--v56-opp:#e24b4b;--v56-gk:#f2c94c}
+#pitch .player:not(.op-player){background:var(--v56-team)!important;border-color:#fff!important;color:white!important}
+#pitch .player:first-of-type:not(.op-player){background:var(--v56-gk)!important;color:#172b22!important}
+#pitch .op-player,.opp-match-pitch .opp-token{background:var(--v56-opp)!important;border-color:#fff!important;color:white!important}
+#oppMatchPitch .opp-token:first-of-type{background:var(--v56-gk)!important;color:#172b22!important}
+#v56MarkerSettings{margin:15px 0;padding:14px;background:#f0f8f2;border:1px solid #bed8c6;border-radius:14px}
+#v56MarkerSettings .v56-colors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+#v56MarkerSettings input[type=color]{width:100%;height:45px;padding:3px}
+</style>
+<script id="v57MarkerFix">
+(function(){'use strict';
+const key='coaches-v56-marker-colours';const defaults={team:'#2478d4',opp:'#e24b4b',gk:'#f2c94c'};
+function get(){try{return {...defaults,...JSON.parse(localStorage.getItem(key)||'{}')}}catch(e){return {...defaults}}}
+function apply(){const c=get();for(const k of Object.keys(defaults)){if(!/^#[0-9a-f]{6}$/i.test(c[k]))c[k]=defaults[k];document.documentElement.style.setProperty('--v56-'+k,c[k])}return c}
+window.v56MarkerHex=function(diagram,i){const c=apply();const opp=/opposition/i.test(diagram?.title||'');return i===0?c.gk:(opp?c.opp:c.team)};
+function init(){apply();if(document.getElementById('v56MarkerSettings'))return;const parent=document.getElementById('v55Hub')||document.getElementById('v29Dashboard')||document.getElementById('home');if(!parent)return;const el=document.createElement('section');el.id='v56MarkerSettings';el.innerHTML='<h3>🎨 Pitch marker colours · V56</h3><p class="muted">Choose colours for your players, opposition and goalkeepers. These colours also appear in complete PDF and PowerPoint pitch diagrams.</p><div class="v56-colors"><label>Our team<input type="color" data-marker="team"></label><label>Opposition<input type="color" data-marker="opp"></label><label>Goalkeepers<input type="color" data-marker="gk"></label></div><button type="button" class="secondary" id="v56Reset">Reset marker colours</button><p class="muted">Your selections are saved automatically on this device.</p>';
+parent.append(el);const c=apply();el.querySelectorAll('[data-marker]').forEach(inp=>{inp.value=c[inp.dataset.marker];inp.addEventListener('input',()=>{const next=get();next[inp.dataset.marker]=inp.value;localStorage.setItem(key,JSON.stringify(next));apply()})});el.querySelector('#v56Reset').onclick=()=>{localStorage.setItem(key,JSON.stringify(defaults));el.querySelectorAll('[data-marker]').forEach(inp=>inp.value=defaults[inp.dataset.marker]);apply()};}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+<script id="v57GKMarkerFix">
+(function(){
+function mark(){
+ const pitch=document.getElementById('pitch');if(pitch){const players=[...pitch.querySelectorAll('.player:not(.op-player)')];players.forEach((p,i)=>p.classList.toggle('v57-goalkeeper',i===0));}
+ const opp=document.getElementById('oppMatchPitch');if(opp){[...opp.querySelectorAll('.opp-token')].forEach((p,i)=>p.classList.toggle('v57-goalkeeper',i===0));}
+}
+const style=document.createElement('style');style.textContent='#pitch .player.v57-goalkeeper,#oppMatchPitch .opp-token.v57-goalkeeper{background:var(--v56-gk)!important;color:#172b22!important}';document.head.appendChild(style);
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{mark();new MutationObserver(mark).observe(document.getElementById('pitch')||document.body,{childList:true,subtree:true});const o=document.getElementById('oppMatchPitch');if(o)new MutationObserver(mark).observe(o,{childList:true});});else{mark();const p=document.getElementById('pitch');if(p)new MutationObserver(mark).observe(p,{childList:true});const o=document.getElementById('oppMatchPitch');if(o)new MutationObserver(mark).observe(o,{childList:true});}
 })();
 </script>
