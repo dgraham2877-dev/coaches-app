@@ -1,14 +1,13 @@
 {
   "id": "./",
-  "name": "Coaches App",
+  "name": "Coaches App V49",
   "short_name": "Coaches App",
-  "description": "Coaches App V16: football coaching tactics, squads, training and matchday workspace.",
-  "start_url": "./index.html",
+  "description": "Professional Football Coaching Workspace V49",
+  "start_url": "./index.html?v=49",
   "scope": "./",
   "display": "standalone",
   "background_color": "#eef2ef",
   "theme_color": "#123d2e",
-  "orientation": "any",
   "icons": [
     {
       "src": "./icons/icon-192.png",
@@ -21,12 +20,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "./icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
     }
   ]
 }
