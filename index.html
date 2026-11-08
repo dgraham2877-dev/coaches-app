@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#123d2e" name="theme-color"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="yes" name="mobile-web-app-capable"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icons/icon-192.png" rel="icon" sizes="192x192" type="image/png"/><link href="./icons/icon-192.png" rel="apple-touch-icon"/><title>Coaches App V47 Professional</title><style>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#123d2e" name="theme-color"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="yes" name="mobile-web-app-capable"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icons/icon-192.png" rel="icon" sizes="192x192" type="image/png"/><link href="./icons/icon-192.png" rel="apple-touch-icon"/><title>Coaches App V44 Professional</title><style>
 :root{font-family:system-ui,-apple-system,Arial;background:#eef2ef;color:#15271f}*{box-sizing:border-box}body{margin:0}header{background:#123d2e;color:white;padding:18px 16px 14px}header small{color:#b9d8c7}h1{font-size:22px;margin:4px 0}main{max-width:850px;margin:auto;padding:14px 14px 90px}.tabs{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;border-top:1px solid #d6e0da;padding:8px 2px max(8px,env(safe-area-inset-bottom));z-index:5}.tabs button{border:0;background:transparent;font-size:11px;color:#536b5e;padding:7px 4px}.tabs button.active{color:#096b3a;font-weight:800}.panel{display:none}.panel.active{display:block}.card{background:white;border:1px solid #dce5de;border-radius:14px;padding:15px;margin:12px 0;box-shadow:0 2px 8px #123d2e09}h2{font-size:19px;margin:5px 0 10px}h3{font-size:15px;margin:8px 0}.muted{color:#62756a;font-size:13px}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}button.primary,button.secondary{border:0;border-radius:9px;padding:10px 13px;font-weight:700;cursor:pointer}.primary{background:#126b42;color:white}.secondary{background:#e5eee8;color:#174d32}input,select,textarea{padding:11px;border:1px solid #cbd9ce;border-radius:9px;background:white;font:inherit;min-width:0}input{width:100%}textarea{width:100%;min-height:75px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:#eff6f0;padding:13px;border-radius:10px}.stat b{display:block;font-size:21px}.pitch{position:relative;width:100%;aspect-ratio:0.72;background:repeating-linear-gradient(to bottom,#287f4c 0%,#287f4c 10%,#237546 10%,#237546 20%);border:3px solid #e8f2e9;border-radius:6px;touch-action:none;overflow:hidden;user-select:none}.pitch:before{content:'';position:absolute;inset:4%;border:2px solid #ffffffa8;pointer-events:none}.midline{position:absolute;top:50%;left:4%;right:4%;border-top:2px solid #ffffffa8}.circle{position:absolute;top:50%;left:50%;width:25%;aspect-ratio:1;border:2px solid #ffffffa8;border-radius:50%;transform:translate(-50%,-50%)}.area{position:absolute;left:25%;width:50%;height:16%;border:2px solid #ffffffa8}.area.top{top:4%}.area.bottom{bottom:4%}.player{position:absolute;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:#f8f8f8;border:2px solid #123d2e;color:#153a2a;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;touch-action:none;box-shadow:0 2px 5px #0005;cursor:grab}.player span{position:absolute;top:39px;color:white;font-size:10px;white-space:nowrap;text-shadow:0 1px 3px #000}.item{border-bottom:1px solid #e6eee8;padding:11px 0}.item:last-child{border:0}.tag{display:inline-block;background:#e1f0e5;color:#23633e;padding:3px 8px;border-radius:99px;font-size:12px}.danger{color:#a32f2f}.tiny{font-size:12px}label{font-size:13px;font-weight:650;display:block;margin:8px 0 5px}#notice{font-size:12px;color:#bde4c9}#movementLayer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}.player{z-index:2}.coach-tools{margin:12px 0;padding:12px;background:#f1f7f2;border-radius:12px}.coach-tools button{margin-bottom:5px}.play-status{font-size:13px;color:#22583c;font-weight:700;margin-top:6px}.player.moving{transition:left .06s linear,top .06s linear}  .op-player{background:#db5555;border-color:#782626;color:white;z-index:3}.ball-token{position:absolute;z-index:4;width:23px;height:23px;border-radius:50%;background:white;border:2px solid #222;transform:translate(-50%,-50%);display:grid;place-items:center;font-size:16px;touch-action:none;box-shadow:0 2px 5px #0008}.timeline-list{display:flex;gap:7px;overflow-x:auto;padding:7px 0}.timeline-list button{white-space:nowrap}.mode-active{outline:3px solid #ffcf50} .tabs{overflow-x:auto;justify-content:flex-start}.tabs button{min-width:64px;flex:1}.panel textarea{min-height:78px}
 /* V29 simplified Home: hide legacy formation summary and playing identity editor; preserve data and JS references. */
 #formationIdentitySummary, #v18Identity {display:none !important;}
@@ -82,7 +82,7 @@ body.v36-unified #home.v29-settings #v29Dashboard{display:none!important}
 body.v36-unified .v29-bottom{overflow-x:auto;justify-content:space-around}
 body.v36-unified .v29-bottom button{white-space:nowrap}
 @media(max-width:390px){body.v36-unified #v29Dashboard .v29-tile{padding:12px;min-height:108px}body.v36-unified #v30Reports .v30-actions{grid-template-columns:1fr 1fr}}
-</style></head><body><header><small id="coachBrandSubtitle" hidden style="display:none!important">PROFESSIONAL FOOTBALL COACHING WORKSPACE</small><h1 style="display:flex;align-items:center;gap:12px"><img alt="Club or soccer ball app icon" id="coachBrandLogo" src="./icons/icon-192.png" style="width:56px;height:56px;object-fit:contain;border-radius:8px"/> <span id="coachBrandHeading">COACHES APP V47</span></h1><small>Professional Football Coaching Workspace · <span id="notice">Saved on this device</span></small><button hidden="" id="installSouths" onclick="installSouths()" style="margin:10px auto;padding:10px 18px;background:#f2d477;color:#173b2d;border:0;border-radius:12px;font-weight:700">Install Coaches App</button></header><main>
+</style></head><body><header><small id="coachBrandSubtitle" hidden style="display:none!important">PROFESSIONAL FOOTBALL COACHING WORKSPACE</small><h1 style="display:flex;align-items:center;gap:12px"><img alt="Club or soccer ball app icon" id="coachBrandLogo" src="./icons/icon-192.png" style="width:56px;height:56px;object-fit:contain;border-radius:8px"/> <span id="coachBrandHeading">COACHES APP V48</span></h1><small>Professional Football Coaching Workspace · <span id="notice">Saved on this device</span></small><button hidden="" id="installSouths" onclick="installSouths()" style="margin:10px auto;padding:10px 18px;background:#f2d477;color:#173b2d;border:0;border-radius:12px;font-weight:700">Install Coaches App</button></header><main>
 <section class="panel active" id="home"><h2>Coaching dashboard</h2><section class="card" id="v19Manager"><h2>Club Manager · V29</h2><p class="muted">Select a club card to open its workspace. Archive, back up or permanently delete old clubs safely.</p><div class="v20-club-grid" id="v20ClubCards"></div><div class="v20-actions" id="v20ClubActions"></div><label>Current club</label><select id="v19Club" onchange="v19ClubChanged()"></select><label>Current team</label><select id="v19Team" onchange="v19SwitchTeam()"></select><div class="grid2"><div><label>New club name</label><input id="v19NewClub" maxlength="65" placeholder="Your club name"/><button onclick="v19CreateClub()">Create club</button></div><div><label>New team name</label><input id="v19NewTeam" maxlength="65" placeholder="U18 / U23 / First Team"/><button onclick="v19CreateTeam()">Add team</button></div></div><div style="margin-top:12px"><button class="secondary" onclick="v19Rename()">Rename current club/team</button> <button class="secondary danger" onclick="v20DeleteTeam()">Delete current team</button></div><p class="tiny muted">Club and team records are saved on this device. Export backups before deleting or clearing browser data. Cloud sharing remains a separate, optional feature.</p></section>
 <div class="card" id="clubBranding"><h2>Club identity &amp; colours</h2><p class="muted">Personalise the coaching workspace for any club. Your changes stay on this device.</p>
 <label for="clubNameInput">Club name</label><input autocomplete="off" id="clubNameInput" maxlength="65" placeholder="e.g. Souths United"/>
@@ -316,7 +316,7 @@ const CLUB_BRAND_KEY='coaches-app-club-brand-v10';
 let clubLogoDraft=null;
 const $brand=id=>document.getElementById(id);
 function safeBrand(){try{return JSON.parse(localStorage.getItem(CLUB_BRAND_KEY)||'{}')}catch{return {}}}
-function applyClubBrand(b){const primary=/^#[0-9a-f]{6}$/i.test(b.primary||'')?b.primary:'#123d2e';const accent=/^#[0-9a-f]{6}$/i.test(b.accent||'')?b.accent:'#f2d477';document.documentElement.style.setProperty('--coach-primary',primary);document.documentElement.style.setProperty('--coach-accent',accent);const name=typeof b.name==='string'?b.name.slice(0,65).trim():''; $brand('coachBrandHeading').textContent='COACHES APP V46';$brand('coachBrandSubtitle').textContent='PROFESSIONAL FOOTBALL COACHING WORKSPACE';const logo=typeof b.logo==='string'&&/^data:image\/(png|jpeg|webp);base64,/.test(b.logo)?b.logo:'./icons/icon-192.png';$brand('coachBrandLogo').src=logo;$brand('clubLogoPreview').src=logo;$brand('clubNameInput').value=name;$brand('clubPrimary').value=primary;$brand('clubAccent').value=accent;clubLogoDraft=logo.startsWith('data:')?logo:null;}
+function applyClubBrand(b){const primary=/^#[0-9a-f]{6}$/i.test(b.primary||'')?b.primary:'#123d2e';const accent=/^#[0-9a-f]{6}$/i.test(b.accent||'')?b.accent:'#f2d477';document.documentElement.style.setProperty('--coach-primary',primary);document.documentElement.style.setProperty('--coach-accent',accent);const name=typeof b.name==='string'?b.name.slice(0,65).trim():''; $brand('coachBrandHeading').textContent='COACHES APP V48';$brand('coachBrandSubtitle').textContent='PROFESSIONAL FOOTBALL COACHING WORKSPACE';const logo=typeof b.logo==='string'&&/^data:image\/(png|jpeg|webp);base64,/.test(b.logo)?b.logo:'./icons/icon-192.png';$brand('coachBrandLogo').src=logo;$brand('clubLogoPreview').src=logo;$brand('clubNameInput').value=name;$brand('clubPrimary').value=primary;$brand('clubAccent').value=accent;clubLogoDraft=logo.startsWith('data:')?logo:null;}
 $brand('clubLogoInput').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>1024*1024){alert('Choose a PNG, JPG or WebP image under 1 MB.');e.target.value='';return;}const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file)});clubLogoDraft=data;$brand('clubLogoPreview').src=data;});
 function resetClubLogo(){clubLogoDraft=null;$brand('clubLogoInput').value='';$brand('clubLogoPreview').src='./icons/icon-192.png';}
 function saveClubBranding(){const b={name:$brand('clubNameInput').value.trim(),primary:$brand('clubPrimary').value,accent:$brand('clubAccent').value,logo:clubLogoDraft};try{localStorage.setItem(CLUB_BRAND_KEY,JSON.stringify(b));applyClubBrand(b);alert('Club branding saved on this device.')}catch(e){alert('Storage is full. Try a smaller club crest.')}}
@@ -849,7 +849,7 @@ function init(){
  if(head){
    const nodes=head.querySelectorAll('small');
    nodes.forEach(n=>{if(n.id==='coachBrandSubtitle'){n.hidden=true;n.style.display='none';}});
-   const title=head.querySelector('h1');if(title)title.textContent='COACHES APP V46';
+   const title=head.querySelector('h1');if(title)title.textContent='COACHES APP V48';
  }
  const reports=document.getElementById('v30Reports');
  if(reports){
@@ -1404,33 +1404,32 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 })();
 </script>
 
-
-<style id="v47UpdateStyle">
-#v47Updates{margin:14px 0;padding:14px;border:1px solid #c6ddce;border-radius:14px;background:#f0f7f2;color:#174331}
-#v47Updates h3{margin:0 0 7px;font-size:17px}
-#v47Updates p{font-size:13px;margin:7px 0}
-#v47Updates button{border:0;border-radius:10px;background:#126b42;color:#fff;padding:12px 14px;font-weight:750;min-height:44px}
-#v47Updates button:disabled{opacity:.6}
-#v47UpdateStatus{overflow-wrap:anywhere}
+<style id="v48UpdateStyle">
+#v48Updates{margin:14px 0;padding:14px;border:1px solid #c6ddce;border-radius:14px;background:#f0f7f2;color:#174331}
+#v48Updates h3{margin:0 0 7px;font-size:17px}
+#v48Updates p{font-size:13px;margin:7px 0}
+#v48Updates button{border:0;border-radius:10px;background:#126b42;color:#fff;padding:12px 14px;font-weight:750;min-height:44px}
+#v48Updates button:disabled{opacity:.6}
+#v48UpdateStatus{overflow-wrap:anywhere}
 </style>
-<script id="v47UpdateLogic">
+<script id="v48UpdateLogic">
 (function(){
 'use strict';
-const VERSION=47;
+const VERSION=48;
 function render(){
- const dash=document.getElementById('v29Dashboard');if(!dash||document.getElementById('v47Updates'))return;
+ const dash=document.getElementById('v29Dashboard');if(!dash||document.getElementById('v48Updates'))return;
  const title=dash.querySelector('h2');if(title)title.textContent='Coaching Dashboard';
- const box=document.createElement('section');box.id='v47Updates';
- const h=document.createElement('h3');h.textContent='App updates · V47';
+ const box=document.createElement('section');box.id='v48Updates';
+ const h=document.createElement('h3');h.textContent='App updates · V48';
  const p=document.createElement('p');p.textContent='Check for a newer version on GitHub Pages. Your saved clubs, formations and scouting notes remain on this device.';
  const button=document.createElement('button');button.type='button';button.textContent='Check for updates';
- const status=document.createElement('p');status.id='v47UpdateStatus';status.setAttribute('role','status');status.textContent='Installed app version: V47';
+ const status=document.createElement('p');status.id='v48UpdateStatus';status.setAttribute('role','status');status.textContent='Installed app version: V48';
  box.append(h,p,button,status);dash.appendChild(box);
  button.addEventListener('click',async()=>{
-  if(!navigator.onLine){status.textContent='You are offline. Connect to the internet to check for updates.';return}
+  if(location.protocol!=='https:' && location.protocol!=='http:'){status.textContent='Open the GitHub Pages website to check for updates. This downloaded file cannot check the published version.';return} if(!navigator.onLine){status.textContent='You are offline. Connect to the internet to check for updates.';return}
   button.disabled=true;status.textContent='Checking GitHub Pages…';
   try{
-   const url=new URL('./index.html',location.href);url.searchParams.set('v47_check',String(Date.now()));
+   const url=new URL('./index.html',location.href);url.searchParams.set('v48_check',String(Date.now()));
    const response=await fetch(url.toString(),{cache:'no-store'});
    if(!response.ok)throw Error('HTTP '+response.status);
    const html=await response.text();
@@ -1441,13 +1440,131 @@ function render(){
     status.textContent='V'+latest+' is available. Tap Reload latest version to update.';
     button.textContent='Reload latest version';
     button.onclick=()=>{const next=new URL('./index.html',location.href);next.searchParams.set('updated',String(Date.now()));location.replace(next.toString())};
-   }else if(latest===VERSION){status.textContent='You are up to date (V47).';}
-   else{status.textContent='GitHub Pages currently reports V'+latest+'. This app is V47; the website may still be deploying.';}
+   }else if(latest===VERSION){status.textContent='You are up to date (V48).';}
+   else{status.textContent='GitHub Pages currently reports V'+latest+'. This app is V48; the website may still be deploying.';}
   }catch(err){status.textContent='Could not check updates: '+err.message+'. Try again when connected.';}
   finally{button.disabled=false}
  });
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{render();setTimeout(render,700)});
 else{render();setTimeout(render,700)}
+})();
+</script>
+<style id="v48FinalMobileRepairs">
+/* V48 mobile repairs: no stored formation or roster data is changed. */
+#pitch .player span {top:33px!important;max-width:84px;font-size:10px;line-height:1.1}
+#pitch .player {max-width:calc(100% - 12px)}
+#pitch .player:last-of-type span {top:29px!important}
+#oppMatchPitch .opp-token span,.opp-match-pitch .opp-token span {top:31px!important;max-width:72px!important;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;line-height:1.15;padding:2px 3px;border-radius:5px;background:#102f24e0;text-align:center}
+#oppMatchPitch .opp-token:nth-of-type(odd) span {transform:translateX(-5px)}
+#oppMatchPitch .opp-token:nth-of-type(even) span {transform:translateX(5px)}
+#v43OppSaved {display:none!important}
+#v43OppSaved:where(*) {visibility:hidden}
+#v44Library + details:has(> #v43OppSaved),details:has(> #v43OppSaved) {display:none!important}
+.v29-bottom button.active {background:#28664a!important;border-radius:9px}
+.v29-bottom button:not(.active) {background:transparent!important}
+@media(max-width:650px){
+ #oppositionMatchCard{padding:10px!important}
+ #oppositionMatchCard .opp-match-pitch{margin:10px auto}
+ #oppositionMatchCard .opp-roster-row{gap:5px}
+ #oppMatchPitch .opp-token span{max-width:63px!important;font-size:9px}
+ #pitch .player span{max-width:72px}
+}
+</style>
+<script id="v48FinalMobileRepairScript">
+(function(){'use strict';
+ function syncNavigation(clicked){
+  const nav=document.querySelector('.v29-bottom');if(!nav)return;
+  const buttons=[...nav.querySelectorAll('button')];
+  let selected=clicked&&clicked.closest('.v29-bottom button');
+  if(!selected){const active=document.querySelector('main > section.panel.active');const id=active&&active.id;
+   selected=buttons.find(b=>b.dataset.tab===id&&!(b.textContent||'').includes('Opposition'))||buttons[0];}
+  buttons.forEach(b=>{const on=b===selected;b.classList.toggle('active',on);if(on)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
+ }
+ function init(){
+  const nav=document.querySelector('.v29-bottom');if(nav){
+   nav.addEventListener('click',e=>{const b=e.target.closest('button');if(b)syncNavigation(b)},true);
+   syncNavigation();
+  }
+  const old=document.getElementById('v43OppSaved');if(old){const parent=old.closest('details');if(parent&&parent.querySelector('summary')?.textContent.includes('Older manual'))parent.hidden=true;}
+  const heading=document.querySelector('head > title');if(heading)heading.textContent='Coaches App V48';
+  // The GK token is close to the bottom boundary. Raise only its visible label.
+  const pitch=document.getElementById('pitch');if(pitch){
+   const adjust=()=>{pitch.querySelectorAll('.player').forEach(p=>{const label=p.querySelector('span');if(!label)return;const text=(label.textContent||'').trim();if(text==='GK')label.style.setProperty('top','25px','important')});};
+   adjust();new MutationObserver(adjust).observe(pitch,{childList:true,subtree:false});
+  }
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+<style id="v48ReleasePolish">
+/* Presentation only: no changes to saved formations or player data. */
+#oppMatchPitch .opp-token span {
+  max-width:58px!important; min-width:30px; text-align:center;
+  transform:translateX(-50%)!important; left:50%!important;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+#oppMatchPitch .opp-token { z-index:3; }
+.v29-bottom button:not(.active) { background:transparent!important; }
+.v29-bottom button.active { background:#28664a!important; border-radius:10px; }
+</style>
+<script id="v48ReleasePolishScript">
+(function(){
+  'use strict';
+  function updateNav(target){
+    const nav=document.querySelector('.v29-bottom');
+    if(!nav)return;
+    const buttons=Array.from(nav.querySelectorAll('button'));
+    const selected=target && buttons.includes(target) ? target : null;
+    if(!selected)return;
+    buttons.forEach(function(b){
+      const active=b===selected;
+      b.classList.toggle('active',active);
+      if(active)b.setAttribute('aria-current','page');
+      else b.removeAttribute('aria-current');
+    });
+  }
+  function init(){
+    const nav=document.querySelector('.v29-bottom');
+    if(!nav)return;
+    nav.addEventListener('click',function(e){
+      const button=e.target.closest('button');
+      if(button && nav.contains(button)){
+        updateNav(button);
+        // Existing navigation handlers may run after this handler.
+        queueMicrotask(function(){updateNav(button)});
+      }
+    });
+    const cards=document.querySelectorAll('.v29-tile');
+    cards.forEach(function(card){
+      card.addEventListener('click',function(){
+        const label=(card.textContent||'').toLowerCase();
+        const buttons=Array.from(nav.querySelectorAll('button'));
+        const keyword=label.includes('opposition')?'opposition':
+          label.includes('tactics')?'tactics':
+          label.includes('team')?'team':
+          label.includes('scout')?'scout':null;
+        if(keyword){
+          const button=buttons.find(function(b){return (b.textContent||'').toLowerCase().includes(keyword)});
+          if(button)queueMicrotask(function(){updateNav(button)});
+        }
+      });
+    });
+    const pitch=document.getElementById('oppMatchPitch');
+    if(pitch){
+      function shortenDefaultNames(){
+        pitch.querySelectorAll('.opp-token span').forEach(function(span){
+          const value=(span.textContent||'').trim();
+          const match=/^Player\s+(\d+)$/i.exec(value);
+          if(match)span.textContent='P'+match[1];
+        });
+      }
+      shortenDefaultNames();
+      new MutationObserver(shortenDefaultNames).observe(pitch,{childList:true,subtree:true,characterData:true});
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+  else init();
 })();
 </script>
